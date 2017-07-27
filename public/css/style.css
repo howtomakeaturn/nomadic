@@ -1,0 +1,213 @@
+body {
+    font-size: 14px;
+    font-family: Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, sans-serif;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+.row.no-padding > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
+.row.small-padding > [class*='col-'] {
+  padding-right:5px;
+  padding-left:5px;
+}
+
+td {
+    cursor: pointer;
+}
+
+th {
+    cursor: pointer;
+    font-size: 12px;
+}
+td.-small {
+    width: 80px;
+}
+td.-medium {
+    width: 120px;
+}
+td.-large {
+    width: 230px;
+}
+
+.blue {
+    color: #2196F3;
+}
+.yellow {
+    color: #FFC107;
+}
+.grey {
+    color: #757575;
+}
+
+.note {
+    margin-top: 5px;
+}
+.minor {
+    font-size: 14px;
+}
+
+.modal .n {
+    color: #757575;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+}
+.rating-box {
+    margin-bottom: 10px;
+}
+
+.rating-box > .name {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    width: calc(100% - 45px);
+    display: inline-block;
+}
+
+.rating-box > .value {
+    float: right;
+}
+
+.newlabel {
+    display: inline-block;
+    background-color: #00BCD4;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: white;
+    margin-right: 2px;
+}
+
+.donatedlabel {
+    display: inline-block;
+    background-color: #2196F3;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: white;
+    margin-right: 2px;
+}
+
+.cafe-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #757575;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.cafe-tag:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #BDBDBD;
+    text-decoration: none;
+}
+
+.city-box {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #E0F7FA;
+}
+.city-box .name {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .city-box .name {
+        font-size: 18px;
+    }
+}
+
+.city-box a {
+
+}
+.city-box .navigation {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.city-box .info {
+    font-size: 12px;
+    color: #9e9e9e;
+}
+
+.city-box .green {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.city-box .blue {
+    color: #42A5F5;
+    font-weight: bold;
+}
+
+.city-box .orange {
+    color: #FF9800;
+    font-weight: bold;
+}
+
+.city-box .yellow {
+    font-weight: bold;
+}
+
+._thumbnail {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+    ._thumbnail {
+      width: 280px;
+      height: 280px;
+    }
+}
+
+._thumbnail img.photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+._thumbnail img.photo.portrait {
+  width: 100%;
+  height: auto;
+}
+._thumbnail img.photo:hover {
+    cursor: pointer;
+}
+
+._thumbnail.-small {
+  width: 90px;
+  height: 90px;
+}
+
+@media (min-width: 768px) {
+    ._thumbnail.-small {
+      width: 115px;
+      height: 115px;
+    }
+}
+
+.seo-link {
+    color: #333;
+}
+
+.seo-link:hover {
+    cursor: pointer;
+}
