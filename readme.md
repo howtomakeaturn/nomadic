@@ -8,7 +8,11 @@ Nomadic 是一套讓網友一起整理清單、蒐集資訊、共同評分的 op
 
 ## Screenshots
 
+Nomadic 首頁
+
 ![首頁](/images/screenshot-homepage.png?raw=true "Homepage")
+
+Nomadic 清單頁面
 
 ![清單](/images/screenshot-list.png?raw=true "List")
 
