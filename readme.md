@@ -6,6 +6,12 @@ Nomadic 是一套讓網友一起整理清單、蒐集資訊、共同評分的 op
 
 目前版本支援清單模式跟評分/編輯/留言/打卡/標籤功能。
 
+## Screenshots
+
+![首頁](/images/screenshot-homepage.png?raw=true "Homepage")
+
+![清單](/images/screenshot-list.png?raw=true "List")
+
 ## 現階段的狀況
 
 1. Nomadic 目前還在 beta 階段，系統可能不夠穩定，請斟酌情境使用
