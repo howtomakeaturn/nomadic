@@ -274,7 +274,7 @@
                 <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
-                <li role="presentation" @if(Request::path()=='contribute') class="active" @endif><a href="/contribute">{{trans('layout.nav.create')}}@if(Request::path()=='contribute') <span class="sr-only">(目前頁面)</span> @endif</a></li>
+                <li role="presentation" @if(Request::path()=='contribute') class="active" @endif><a href="/contribute">新增{{ config('nomadic.global.subject') }}@if(Request::path() == 'contribute') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @endif
                 <!--
