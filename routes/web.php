@@ -10,14 +10,8 @@ Route::get('/post/edit/{id}', 'PostController@edit');
 Route::post('/update-post', 'PostController@updatePost');
 Route::post('/comment-to-post', 'PostController@commentToPost');
 
-Route::get('/contribute', function() {
-
-    if ( !Auth::check() ) {
-        return redirect("login?&path=/contribute");
-    }
-
-    return view('add-cafe');
-});
+Route::get('/contribute', 'CommunityController@contribute');
+Route::post('/contribute', 'CommunityController@saveContribution');
 
 Route::get('/login', function(){
     Session::put('cafe_id', Request::get('cafe_id'));
@@ -200,48 +194,6 @@ Route::post('/submit-editing', function(){
     $e->approve();
 
     return view('notice', ['title' => '修改成功！', 'message' => '非常謝謝您，已經更新進資料庫！']);
-});
-
-Route::post('add-cafe', function(){
-    $cafe = new App\Cafe();
-
-    $uuid4 = Ramsey\Uuid\Uuid::uuid4();
-
-    $cafe->id = $uuid4->toString();
-
-    $rfs = config('review-fields');
-
-    $rfks = [];
-
-    foreach ($rfs as $rf) {
-        $rfks[] = $rf['key'];
-    }
-
-    $reviewFields = Request::only($rfks);
-
-    $ifs = config('info-fields');
-
-    $ifks = [];
-
-    foreach ($ifs as $if) {
-        $ifks[] = $if['key'];
-    }
-
-    $infoFields = Request::only($ifks);
-
-    $cafe->name = Request::get('name');
-
-    $cafe->city = Request::get('city');
-
-    $cafe->review_fields = json_encode($reviewFields);
-
-    $cafe->info_fields = json_encode($infoFields);
-
-    $cafe->status = App\Cafe::APPROVED_STATUS;
-
-    $cafe->save();
-
-    return view('notice', ['title' => '新增成功！', 'message' => '非常謝謝您，已經新增進資料庫！']);
 });
 
 Route::get('/privacy-policy', function(){
