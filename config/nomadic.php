@@ -2,6 +2,7 @@
 
 return [
     'global' => [
+        'app' => 'Nomadic',
         'subject' => '咖啡廳',
         'unit' => '間',
     ],

@@ -261,7 +261,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="/">Nomadic</a>
+              <a class="navbar-brand" href="/">{{ config('nomadic.global.app') }}</a>
 
             </div>
 
