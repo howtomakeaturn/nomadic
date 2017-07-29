@@ -2,7 +2,7 @@
     <div class="container">
         <div class='row'>
             <div class='col-md-12'>
-                <a href='/' style='font-size: 24px; margin-bottom: 20px;'>Nomadic</a>
+                <a href='/' style='font-size: 24px; margin-bottom: 20px;'>{{ config('nomadic.global.app') }}</a>
             </div>
         </div>
     </div>
