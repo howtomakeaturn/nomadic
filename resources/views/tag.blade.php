@@ -54,15 +54,6 @@
     </div>
     <br>
     <br>
-    <!--
-    <div class='slogan'>
-
-        出沒在不同咖啡廳，找地方工作、看書、開會、聊天的人們。<br>
-
-        下面是由台灣各地的 cafe nomad 社群，一起整理的咖啡廳清單與地圖。<br>
-
-    </div>
-    -->
 </div>
 
 <div class="bg -grey">
@@ -74,9 +65,6 @@
                     <div id='shop-info'>
 
                         <header>
-                            @if($cafe->fan_page)
-                            <img src='{{$cafe->fan_page->imageUrl()}}'>
-                            @endif
                             <div class='title'>
                                 <div class='name'>
                                 {{$cafe->name}}
@@ -93,39 +81,21 @@
                             </div>
                         </header>
 
-                        <div class="row">
-                          <div class="col-xs-6">
-                              <div class='rating-box'>
-                                  wifi 穩定
-                                  <div class='value {{starClass($cafe->wifi)}}'>{{$cafe->presentStar('wifi')}}</div>
-                              </div>
-                              <div class='rating-box'>
-                                  通常有位
-                                  <div class='value {{starClass($cafe->seat)}}'>{{$cafe->presentStar('seat')}}</div>
-                              </div>
-                              <div class='rating-box'>
-                                  安靜程度
-                                  <div class='value {{starClass($cafe->quiet)}}'>{{$cafe->presentStar('quiet')}}</div>
-                              </div>
-                              <div class='rating-box'>
-                                  咖啡好喝
-                                  <div class='value {{starClass($cafe->tasty)}}'>{{$cafe->presentStar('tasty')}}</div>
-                              </div>
-                          </div>
-                          <div class="col-xs-6">
-                              <div class='rating-box'>
-                                  東西好吃
-                                  <div class='value {{starClass($cafe->food)}}'>{{$cafe->presentStar('food')}}</div>
-                              </div>
-                              <div class='rating-box'>
-                                  價格便宜
-                                  <div class='value {{starClass($cafe->cheap)}}'>{{$cafe->presentStar('cheap')}}</div>
-                              </div>
-                              <div class='rating-box'>
-                                  裝潢音樂
-                                  <div class='value {{starClass($cafe->music)}}'>{{$cafe->presentStar('music')}}</div>
-                              </div>
-                          </div>
+                        <div class="row small-padding">
+                            @foreach(Config::get('review-fields') as $field)
+                            <div class="col-xs-6">
+                                <div class='rating-box'>
+                                    {{$field['label']}}
+                                    <div class='value {{starClass($cafe->getReviewFieldValue($field['key']))}}'>
+                                      @if($cafe->getReviewFieldValue($field['key']))
+                                      {{number_format($cafe->getReviewFieldValue($field['key']), 1)}}  ★
+                                      @else
+
+                                      @endif
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
                       </div>
                     </div>
 
@@ -135,8 +105,6 @@
         </div>
     </div>
 </div>
-
-@include('partial/_tag-map-section')
 
 <br>
 

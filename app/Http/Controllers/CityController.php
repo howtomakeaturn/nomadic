@@ -254,7 +254,7 @@ class CityController extends BaseController
             $center = ['lat' => 24.042571, 'lng' => 120.9472711, 'zoom' => 8];
         }
 
-        Layout::setOpenGraphTitle('Cafe Nomad - ' . Config::get('city')[$city]['zh'] . $tag->name . '的咖啡廳清單：共收錄' . $cafes->count() . '間網友推薦的店');
+        Layout::setOpenGraphTitle( config('nomadic.global.app'). ' - ' . Config::get('city')[$city]['zh'] . $tag->name . '的' . config('nomadic.global.subject') . '清單：共收錄' . $cafes->count() . '間網友推薦的店');
 
         return view('tag', compact('cafes', 'city', 'tag', 'center'));
     }
