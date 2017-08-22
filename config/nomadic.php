@@ -5,6 +5,7 @@ return [
         'app' => 'Nomadic',
         'subject' => '咖啡廳',
         'unit' => '間',
+        'name_of_unit' => '店名',
     ],
     'homepage' => [
         'title' => 'Nomadic',

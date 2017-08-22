@@ -8,7 +8,7 @@
         <table class='table table-hover table-condensed table-striped'>
             <thead>
                 <tr>
-                    <th class="sort -large" data-sort="c0">{{trans('util.fields.name')}}</th>
+                    <th class="sort -large" data-sort="c0">{{Config::get('nomadic.global.name_of_unit')}}</th>
                     @foreach(Config::get('review-fields') as $field)
                     <th>{{$field['label']}}</th>
                     @endforeach
