@@ -22,4 +22,10 @@ return [
         'enabled' => true,
         'label' => '討論區',
     ],
+    'links' => [
+        [
+            'url' => 'https://github.com/howtomakeaturn/nomadic',
+            'label' => 'Github',
+        ],
+    ]
 ];

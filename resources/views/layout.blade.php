@@ -275,6 +275,10 @@
                 <li role="presentation" ><a href="/forum">{{Config::get('nomadic.forum.label')}}</a></li>
                 @endif
 
+                @foreach(Config::get('nomadic.links') as $link)
+                <li role="presentation" ><a href="{{$link['url']}}" target='_blank'>{{$link['label']}}</a></li>
+                @endforeach
+
                 <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
