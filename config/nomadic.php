@@ -17,5 +17,9 @@ return [
         'contribute' => [
             'name-notice' => '若有分店，請註明分店名'
         ]
-    ]
+    ],
+    'forum' => [
+        'enabled' => true,
+        'label' => '討論區',
+    ],
 ];

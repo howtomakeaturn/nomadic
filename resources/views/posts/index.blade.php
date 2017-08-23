@@ -70,8 +70,7 @@
     <div class='container'>
         <div class='row'>
             <div class='col-md-12'>
-                <h3>Cafe Nomad 討論版</h3>
-                歡迎大家在這裡討論咖啡廳、喝咖啡、工作、閒聊... 等等的各種話題！
+                <h3>{{Config::get('nomadic.forum.label')}}</h3>
             </div>
         </div>
     </div>

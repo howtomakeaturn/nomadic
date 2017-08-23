@@ -271,6 +271,10 @@
 
                 <li role="presentation" ><a href="#city-modal" data-toggle="modal" data-target="#city-modal">{{trans('layout.nav.choose-city')}}</a></li>
 
+                @if(Config::get('nomadic.forum.enabled'))
+                <li role="presentation" ><a href="/forum">{{Config::get('nomadic.forum.label')}}</a></li>
+                @endif
+
                 <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
