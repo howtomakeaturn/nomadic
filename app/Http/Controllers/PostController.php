@@ -10,6 +10,7 @@ use App\PostComment as Comment;
 use Auth;
 use Request;
 use Layout;
+use Config;
 
 class PostController extends BaseController
 {
@@ -21,7 +22,7 @@ class PostController extends BaseController
 
     function index()
     {
-        Layout::setOpenGraphTitle('Cafe Nomad 討論版 - 歡迎大家在這裡討論咖啡廳、喝咖啡、工作、閒聊... 等等的各種話題！');
+        Layout::setOpenGraphTitle(Config::get('nomadic.global.app') . ' ' . Config::get('nomadic.forum.label'));
 
         Layout::setOpenGraphImage(url('/android-chrome-384x384.png'));
 
