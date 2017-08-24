@@ -47,9 +47,9 @@ class City
         $result = [];
 
         foreach (Config::get('city') as $index => $data) {
-            if ($data['online']) {
+            //if ($data['online']) {
                 $result[] = $index;
-            }
+            //}
         }
 
         return collect($result);
