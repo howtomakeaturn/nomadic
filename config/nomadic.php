@@ -6,6 +6,7 @@ return [
         'subject' => '咖啡廳',
         'unit' => '間',
         'name_of_unit' => '店名',
+        'category' => '城市'
     ],
     'homepage' => [
         'title' => 'Nomadic',

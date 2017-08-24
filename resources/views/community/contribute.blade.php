@@ -15,7 +15,7 @@
         <div class="col-md-6">
             <form method="post" action="/contribute" style="padding-left: 0;">
                 <p>
-                    所在縣市：
+                    所在{{Config::get('nomadic.global.category')}}：
                     <select name="city">
                         <option value="">請選擇</option>
                     @foreach(Config::get('city') as $key => $value)

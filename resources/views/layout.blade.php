@@ -269,7 +269,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
 
-                <li role="presentation" ><a href="#city-modal" data-toggle="modal" data-target="#city-modal">{{trans('layout.nav.choose-city')}}</a></li>
+                <li role="presentation" ><a href="#city-modal" data-toggle="modal" data-target="#city-modal">選擇{{Config::get('nomadic.global.category')}}</a></li>
 
                 @if(Config::get('nomadic.forum.enabled'))
                 <li role="presentation" ><a href="/forum">{{Config::get('nomadic.forum.label')}}</a></li>
@@ -388,7 +388,7 @@
 
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style='text-align: center;'>{{trans('layout.nav.choose-city')}}</h4>
+                <h4 class="modal-title" id="myModalLabel" style='text-align: center;'>選擇{{Config::get('nomadic.global.category')}}</h4>
               </div>
 
               <div class="modal-body">
