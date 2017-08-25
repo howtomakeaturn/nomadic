@@ -104,13 +104,11 @@
 
     <div class='greeting-box'>
         <div class='title'>
-            {{trans("global.city.$city")}}
+            {{Config::get('city.' . $city . '.zh')}}
         </div>
         <div class='slogan'>
             <a href='/{{$city}}' class='btn btn-default'><i class="fa fa-home"></i>&nbsp; {{trans('global.mode.homepage')}}</a>
             <a href='/{{$city}}/list' class='btn btn-default'><i class="fa fa-list"></i>&nbsp; {{trans('global.mode.list')}}</a>
-            <a href='/{{$city}}/map' class='btn btn-default'><i class="fa fa-globe"></i>&nbsp; {{trans('global.mode.map')}}</a>
-            <a href='/{{$city}}/flaneur' class='btn btn-default'><i class="fa fa-facebook-official"></i>&nbsp; {{trans('global.mode.feed')}}</a>
         </div>
     </div>
 
@@ -167,13 +165,6 @@
 
     <br>
     <br>
-
-    @include('city-homepage/_photo-section')
-
-    <br>
-    <br>
-
-    @include('city-homepage/_fb-section')
 
     @include('partial/_footer')
 

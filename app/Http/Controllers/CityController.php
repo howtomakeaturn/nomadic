@@ -156,15 +156,13 @@ class CityController extends BaseController
 
         if (Layout::isMobile()) $displayNumber = 3;
 
-        $fbFeeds = City::getLatestFbFeeds($city, $displayNumber);
-
         $comments = City::getLatestComments($city, $displayNumber);
 
         $reviews = City::getLatestReviews($city, $displayNumber);
 
         $photos = City::getLatestPhotos($city, $displayNumber);
 
-        return view('city-homepage', compact('city', 'fbFeeds', 'comments', 'reviews', 'photos'));
+        return view('city-homepage', compact('city', 'comments', 'reviews', 'photos'));
     }
 
     function getFlaneur($city)
