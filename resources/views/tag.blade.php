@@ -50,7 +50,7 @@
 
 <div class='greeting-box'>
     <div class='title'>
-        {{Config::get('city')[$city]['zh']}}{{$tag->name}}的咖啡廳清單：共收錄{{$cafes->count()}}間網友推薦的店
+        {{Config::get('city')[$city]['zh']}}{{$tag->name}}的{{Config::get('nomadic.global.subject')}}清單：共收錄{{$cafes->count()}}{{Config::get('nomadic.tag-page.unit')}}
     </div>
     <br>
     <br>

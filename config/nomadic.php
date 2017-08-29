@@ -28,5 +28,8 @@ return [
             'url' => 'https://github.com/howtomakeaturn/nomadic',
             'label' => 'Github',
         ],
+    ],
+    'tag-page' => [
+        'unit' => '間網友推薦的店'
     ]
 ];
