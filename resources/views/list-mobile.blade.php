@@ -22,6 +22,14 @@
 <br>
 <br>
 
+<script>
+    $(document).ready(function(){
+        @if(isset($targetCafe))
+        openModalByUuid('{{ $targetCafe->id }}', 'list');
+        @endif
+    });
+</script>
+
 @include('partial/_footer')
 
 @endsection

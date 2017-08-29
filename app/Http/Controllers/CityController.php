@@ -107,21 +107,46 @@ class CityController extends BaseController
 
         $city = $targetCafe->city;
 
-        return redirect("/$city/list");
+        session(['mode' => 'list']);
 
-        $center = [
-            'lat' => $targetCafe->latitude,
-            'lng' => $targetCafe->longitude,
-            'zoom' => 15
-        ];
+        session(['city' => $city]);
+
+        Layout::setCity($city);
+
+        CafeNomad::setMode('list');
 
         $fields = City::getFields($city);
 
-        Layout::setCafe($targetCafe);
+        $cafes = Cafe::where('city', $city)->where('status', 10)->get();
 
-        $cafes = \App\Cafe::where('city', $city)->where('status', 10)->get();
+        $new = collect([]);
+        $donated = collect([]);
 
-        return view('map', ['targetCafe' => $targetCafe, 'cafes' => $cafes, 'center' => $center, 'fields' => $fields]);
+        foreach ($cafes as $index => $cafe) {
+            if ($cafe->is_donated) {
+                $donated->push($cafe);
+                $cafes->forget($index);
+            } else if ($cafe->opening_date !== null) {
+                $new->push($cafe);
+                $cafes->forget($index);
+            }
+        }
+
+        $new = $new->sortBy('opening_date');
+
+        $donated = $donated->shuffle();
+
+        foreach ($new as $c) {
+            $cafes->prepend($c);
+        }
+
+        foreach ($donated as $c) {
+            $cafes->prepend($c);
+        }
+
+        $agent = new \Jenssegers\Agent\Agent();
+
+        return view($this->getView($city), ['cafes' => $cafes, 'fields' => $fields, 'targetCafe' => $targetCafe]);
     }
 
     function getDiscovery($city)

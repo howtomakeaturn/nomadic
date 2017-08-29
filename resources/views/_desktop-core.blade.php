@@ -21,7 +21,7 @@
                 @foreach($cafes as $cafe)
                 <tr id='{{$cafe->id}}' class='@if(in_array('mrt', $fields)) {{mrtClass($cafe->mrt)}} @endif @if(!$cafe->isGoodForWorking()) not-working-cafe @endif @if($cafe->is_starred) is-starred-cafe @endif' onclick="openModalByUuid('{{$cafe->id}}', 'list')">
                     <td class="c0 -large">
-                        <a href='/shop/{{$cafe->id}}' onclick="return false;" class="seo-link">{{$cafe->name}}</a>
+                        <a href='/{{Config::get('nomadic.global.unit-url')}}/{{$cafe->id}}' onclick="return false;" class="seo-link">{{$cafe->name}}</a>
                         @if($cafe->note!=='')
                             <br />
                             <div class='minor grey note' style='display: none;'>{{$cafe->note}} - {{$cafe->who}}</div>

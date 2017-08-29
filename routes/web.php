@@ -297,7 +297,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 
     Route::group(['middleware' => 'track_activity'], function () {
 
-        Route::get('/shop/{id}', 'CityController@getshop');
+        Route::get('/' . Config::get('nomadic.global.unit-url') . '/{id}', 'CityController@getshop');
 
         Route::get('/shop/{id}/tag', 'ShopController@tag');
 

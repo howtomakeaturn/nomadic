@@ -122,9 +122,9 @@ $('#modal-{{$cafe->id}}').on('shown.bs.modal', function() {
 
     var id = $(this).data('uuid');
 
-    //window.history.pushState(null, title, "/shop/" + id);
+    window.history.pushState(null, title, "/{{Config::get('nomadic.global.unit-url')}}/" + id);
 
-    //document.title = title;
+    document.title = title;
 });
 
 @endif
