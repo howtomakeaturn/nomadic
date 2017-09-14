@@ -122,10 +122,10 @@
         </div>
         -->
         <div class='info_'>
-                <span class='green'>{{ App\City::numOfCafes($city) }}</span> 間店,
+                <span class='green'>{{ App\City::numOfCafes($city) }}</span> {{Config::get('nomadic.category-homepage.unit-amount')}},
                 <span class='blue'>{{ App\City::numOfReviews($city) }}</span> 則評分,
                 <span class='orange'>{{ App\City::numOfComments($city) }}</span> 筆留言,
-                <span class='yellow'>{{ App\City::numOfVisits($city) }}</span> 次打卡
+                <span class='yellow'>{{ App\City::numOfVisits($city) }}</span> {{Config::get('nomadic.category-homepage.checkin-amount')}}
         </div>
     </div>
 

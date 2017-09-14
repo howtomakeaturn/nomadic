@@ -36,7 +36,7 @@
 
             @if($reviews->count() === 0)
                 <center>
-                    <i>這個地區還沒有人評分。</i>
+                    <i>{{Config::get('nomadic.category-homepage.empty-review-text')}}</i>
                 </center>
             @endif
 

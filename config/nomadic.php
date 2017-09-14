@@ -32,5 +32,11 @@ return [
     ],
     'tag-page' => [
         'unit' => '間網友推薦的店'
-    ]
+    ],
+    'category-homepage' => [
+        'unit-amount' => '間店',
+        'checkin-amount' => '次打卡',
+        'empty-comment-text' => '這個地區還沒有人留言。',
+        'empty-review-text' => '這個地區還沒有人評分。'
+    ],
 ];

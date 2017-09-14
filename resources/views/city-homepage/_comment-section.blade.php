@@ -36,7 +36,7 @@
 
             @if($comments->count() === 0)
                 <center>
-                    <i>這個地區還沒有人留言。</i>
+                    <i>{{Config::get('nomadic.category-homepage.empty-comment-text')}}</i>
                 </center>
             @endif
 
