@@ -173,7 +173,7 @@ class CityController extends BaseController
 
     function getHomepage($city)
     {
-        Layout::setOpenGraphTitle('Cafe Nomad - ' . Config::get('city')[$city]['zh']);
+        Layout::setOpenGraphTitle(Config::get('nomadic.global.app') . ' - ' . Config::get('city')[$city]['zh']);
 
         Layout::setCity($city);
 
