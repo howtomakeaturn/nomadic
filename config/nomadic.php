@@ -39,4 +39,7 @@ return [
         'empty-comment-text' => '這個地區還沒有人留言。',
         'empty-review-text' => '這個地區還沒有人評分。'
     ],
+    'info-modal' => [
+        'check-in' => '我去過這間'
+    ]
 ];

@@ -41,7 +41,7 @@
 
             if (store.userLogined) {
                 if (store.visited) {
-                    $button = new $("<button class='btn btn-default btn-sm'>（您去過這間）</button>");
+                    $button = new $("<button class='btn btn-default btn-sm'>（{{Config::get('nomadic.info-modal.check-in')}}）</button>");
                     $button.click(function(){
                         store.visited = false;
                         store.count -= 1;
@@ -52,7 +52,7 @@
                     });
                     $e.append($button);
                 } else {
-                    $button = new $("<button class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{trans('util.action.check-in')}}</button>");
+                    $button = new $("<button class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{Config::get('nomadic.info-modal.check-in')}}</button>");
                     $button.click(function(){
                         store.visited = true;
                         store.count += 1;
@@ -63,7 +63,7 @@
                     $e.append($button);
                 }
             } else {
-                $link = new $("<a href='/login?cafe_id={{$cafe->id}}&path=/shop/{{$cafe->id}}&action=recommend' class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{trans('util.action.check-in')}}</a>");
+                $link = new $("<a href='/login?cafe_id={{$cafe->id}}&path=/shop/{{$cafe->id}}&action=recommend' class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{Config::get('nomadic.info-modal.check-in')}}</a>");
                 $e.append($link);
             }
         }
