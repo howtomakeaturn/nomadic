@@ -62,12 +62,16 @@ class City
         $result = collect([]);
 
         foreach ($tags as $tag) {
+            /*
             $count = DB::table('cafe_tag')->join('cafes', 'cafe_id', 'cafes.id')
                 ->join('tags', 'tag_id', 'tags.id')
                 ->where('cafes.city', $city)
                 ->where('tags.id', $tag->id)
                 ->distinct('cafe_tag.cafe_id')
                 ->count('cafe_tag.cafe_id');
+            */
+
+            $count = $tag->cafe_tag_count;
 
             if ($count > 1) {
                 $result->push([

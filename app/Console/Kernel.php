@@ -31,6 +31,16 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('refresh:user-scores')
             ->everyTenMinutes();
+
+        $schedule->call(function () {
+            $tags = \App\Tag::all();
+
+            foreach ($tags as $tag) {
+                $tag->cafe_tag_count = $tag->cafeTags->count();
+
+                $tag->save();
+            }
+        })->everyMinute();
     }
 
     /**
