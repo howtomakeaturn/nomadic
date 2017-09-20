@@ -60,7 +60,7 @@
                 <span class='grey' style='font-size: 12px;'>{{trans('util.text.n-reviews_')}} <a href='/reviewers/{{$cafe->id}}' target='_blank'>{{$cafe->validReviews()->count()}} {{trans('util.text._n-reviews')}}</a></span>
                 @endif
 
-                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $cafe->id }}'><i class='fa fa-eye'></i>&nbsp;{{trans('util.action.write-a-review')}}</a>
+                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $cafe->id }}'><i class='fa fa-star'></i>&nbsp;{{Config::get('nomadic.info-modal.write-a-review')}}</a>
             </div>
         </div>
         <hr />

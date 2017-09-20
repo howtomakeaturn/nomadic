@@ -37,7 +37,7 @@
                 $e.append($img);
             });
 
-            $e.append("{{trans('util.text.num-of-visit_')}} " + store.count + " {{trans('util.text._num-of-visit')}} ");
+            $e.append("{{trans('util.text.num-of-visit_')}} " + store.count + " {{Config::get('nomadic.info-modal.num-of-visit')}} ");
 
             if (store.userLogined) {
                 if (store.visited) {

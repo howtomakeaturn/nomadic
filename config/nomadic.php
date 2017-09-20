@@ -40,6 +40,8 @@ return [
         'empty-review-text' => '這個地區還沒有人評分。'
     ],
     'info-modal' => [
-        'check-in' => '我去過這間'
+        'check-in' => '我去過這間',
+        'num-of-visit' => '人去過這間店。',
+        'write-a-review' => '我要給這間店評分',
     ]
 ];
