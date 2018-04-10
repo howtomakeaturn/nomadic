@@ -1,11 +1,14 @@
 # open source
 - naming: cafe -> entity
 - naming: city -> category
+- create new name
 - naming: CafeNomad -> ?
+- .com ? .org ? .io ?
 - support multiple entity type
 - support multiple mode login
-- create new name
+- support map mode
 - set up official page
 - i18n
 - upgrade to bootstrap 4
 - upgrade to latest laravel version
+- create admin panel with tabler
