@@ -1,8 +1,11 @@
 # open source
 - naming: cafe -> entity
 - naming: city -> category
+- naming: CafeNomad -> ?
 - support multiple entity type
 - support multiple mode login
 - create new name
 - set up official page
 - i18n
+- upgrade to bootstrap 4
+- upgrade to latest laravel version
