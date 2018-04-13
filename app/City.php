@@ -10,29 +10,29 @@ class City
 
     static function numOfCafes($city)
     {
-        return Cafe::whereCity($city)->whereStatus(Cafe::APPROVED_STATUS)->count();
+        return Entity::whereCity($city)->whereStatus(Entity::APPROVED_STATUS)->count();
     }
 
     static function numOfComments($city)
     {
-        $num = DB::table('comments')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('comments')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
 
     static function numOfVisits($city)
     {
-        $num = DB::table('recommendations')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('recommendations')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
 
     static function numOfReviews($city)
     {
-        $num = DB::table('reviews')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('reviews')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
