@@ -53,9 +53,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Review');
     }
 
-    public function cafeTags()
+    public function entityTags()
     {
-        return $this->hasMany('App\CafeTag');
+        return $this->hasMany('App\EntityTag');
     }
 
     public function editings()
@@ -75,9 +75,9 @@ class User extends Authenticatable
         });
     }
 
-    public function cafes()
+    public function entities()
     {
-        return $this->hasMany('App\Cafe');
+        return $this->hasMany('App\Entity');
     }
 
     public function socialCredentials()
@@ -97,11 +97,11 @@ class User extends Authenticatable
 
         $score += ( $this->editings->count() * 5 );
 
-        $score += ( $this->cafes->count() * 5 );
+        $score += ( $this->entities->count() * 5 );
 
         $score += ( $this->validPhotos()->count() * 5 );
 
-        $score += ( $this->cafeTags->count() * 1 );
+        $score += ( $this->entityTags->count() * 1 );
 
         return $score;
     }

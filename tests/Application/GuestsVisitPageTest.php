@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Entity;
 
-class BasicPageTest extends TestCase
+class GuestsVisitPageTest extends TestCase
 {
     use DatabaseMigrations;
 
