@@ -25,7 +25,7 @@ START TRANSACTION;
 --
 
 CREATE TABLE `business_hours` (
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `day` int(11) NOT NULL,
   `open_time` time DEFAULT NULL,
   `close_time` time DEFAULT NULL
@@ -34,10 +34,10 @@ CREATE TABLE `business_hours` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `cafes`
+-- 資料表結構 `entities`
 --
 
-CREATE TABLE `cafes` (
+CREATE TABLE `entities` (
   `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -86,11 +86,11 @@ CREATE TABLE `cafes` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `cafe_tag`
+-- 資料表結構 `entity_tag`
 --
 
-CREATE TABLE `cafe_tag` (
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `entity_tag` (
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tag_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `is_reported` tinyint(1) NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `cafe_tag` (
 CREATE TABLE `chatroom_messages` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -135,7 +135,7 @@ CREATE TABLE `chatroom_users` (
 CREATE TABLE `comments` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -150,7 +150,7 @@ CREATE TABLE `comments` (
 CREATE TABLE `daily_event_counters` (
   `id` int(10) UNSIGNED NOT NULL,
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` int(11) NOT NULL,
   `event_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -191,7 +191,7 @@ CREATE TABLE `doings` (
 
 CREATE TABLE `donations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -206,7 +206,7 @@ CREATE TABLE `donations` (
 
 CREATE TABLE `editings` (
   `id` int(10) UNSIGNED NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -238,7 +238,7 @@ CREATE TABLE `editings` (
 
 CREATE TABLE `fb_fan_pages` (
   `id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `overall_star_rating` double(2,1) NOT NULL,
   `rating_count` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -271,7 +271,7 @@ CREATE TABLE `fb_feeds` (
 CREATE TABLE `google_place_details` (
   `google_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `place_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rating` double(2,1) NOT NULL,
   `response` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -301,7 +301,7 @@ CREATE TABLE `photos` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `height` int(11) NOT NULL,
   `width` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -362,7 +362,7 @@ CREATE TABLE `profiles` (
 CREATE TABLE `recommendations` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -375,7 +375,7 @@ CREATE TABLE `recommendations` (
 
 CREATE TABLE `reviews` (
   `id` int(10) UNSIGNED NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `review_fields` text COLLATE utf8_unicode_ci NOT NULL,
@@ -427,7 +427,7 @@ CREATE TABLE `system_events` (
 CREATE TABLE `tags` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cafe_tag_count` int(11) NOT NULL,
+  `entity_tag_count` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -470,7 +470,7 @@ CREATE TABLE `user_activities` (
 CREATE TABLE `visits` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `visit_at` datetime NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -486,7 +486,7 @@ CREATE TABLE `visits` (
 CREATE TABLE `wishes` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `cafe_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `entity_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -499,19 +499,19 @@ CREATE TABLE `wishes` (
 -- 資料表索引 `business_hours`
 --
 ALTER TABLE `business_hours`
-  ADD PRIMARY KEY (`cafe_id`,`day`);
+  ADD PRIMARY KEY (`entity_id`,`day`);
 
 --
--- 資料表索引 `cafes`
+-- 資料表索引 `entities`
 --
-ALTER TABLE `cafes`
+ALTER TABLE `entities`
   ADD PRIMARY KEY (`id`);
 
 --
--- 資料表索引 `cafe_tag`
+-- 資料表索引 `entity_tag`
 --
-ALTER TABLE `cafe_tag`
-  ADD PRIMARY KEY (`cafe_id`,`tag_id`,`user_id`);
+ALTER TABLE `entity_tag`
+  ADD PRIMARY KEY (`entity_id`,`tag_id`,`user_id`);
 
 --
 -- 資料表索引 `chatroom_messages`
@@ -577,7 +577,7 @@ ALTER TABLE `fb_feeds`
 -- 資料表索引 `google_place_details`
 --
 ALTER TABLE `google_place_details`
-  ADD PRIMARY KEY (`cafe_id`);
+  ADD PRIMARY KEY (`entity_id`);
 
 --
 -- 資料表索引 `password_resets`
