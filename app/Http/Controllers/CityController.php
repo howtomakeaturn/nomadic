@@ -9,6 +9,7 @@ use DB;
 use Layout;
 use Config;
 use App\Cafe;
+use App\Entity;
 use App\City;
 use CafeNomad;
 
@@ -36,36 +37,11 @@ class CityController extends BaseController
 
         $fields = City::getFields($city);
 
-        $cafes = Cafe::where('city', $city)->where('status', 10)->get();
-
-        $new = collect([]);
-        $donated = collect([]);
-
-        foreach ($cafes as $index => $cafe) {
-            if ($cafe->is_donated) {
-                $donated->push($cafe);
-                $cafes->forget($index);
-            } else if ($cafe->opening_date !== null) {
-                $new->push($cafe);
-                $cafes->forget($index);
-            }
-        }
-
-        $new = $new->sortBy('opening_date');
-
-        $donated = $donated->shuffle();
-
-        foreach ($new as $c) {
-            $cafes->prepend($c);
-        }
-
-        foreach ($donated as $c) {
-            $cafes->prepend($c);
-        }
+        $entities = Entity::where('city', $city)->where('status', 10)->get();
 
         $agent = new \Jenssegers\Agent\Agent();
 
-        return view($this->getView($city), ['cafes' => $cafes, 'fields' => $fields]);
+        return view($this->getView($city), ['entities' => $entities, 'fields' => $fields]);
     }
 
     function createMapPage($city)
