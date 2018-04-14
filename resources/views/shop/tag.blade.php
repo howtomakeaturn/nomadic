@@ -35,7 +35,7 @@
                         @if($tag->isApplied(Auth::user(), $entity))
                             <form style='display: inline;' method="post" action=/shop/unapply-tag>
                                 {{csrf_field()}}
-                                <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
+                                <input type='hidden' name='entity_id' value='{{$entity->id}}'>
                                 <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                                 <button type="submit" class="btn-success">
                                     (已同意)
@@ -68,7 +68,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/unapply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
+                        <input type='hidden' name='entity_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                             <i class="fa fa-minus" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                 <div>
                 <form method="post" action='/shop/new-tag'>
                     {{csrf_field()}}
-                    <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
+                    <input type='hidden' name='entity_id' value='{{$entity->id}}'>
                     <input type='text' name='tag_name' placeholder="輸入標籤" required>
                     <button type='submit'>新增</button>
                 </form>
@@ -119,7 +119,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/apply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
+                        <input type='hidden' name='entity_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                         <i class="fa fa-plus" aria-hidden="true"></i>
@@ -147,7 +147,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/apply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
+                        <input type='hidden' name='entity_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                         <i class="fa fa-plus" aria-hidden="true"></i>

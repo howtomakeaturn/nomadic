@@ -24,41 +24,41 @@ class Tag extends Model
 
     function countOnCafe($cafe)
     {
-        return CafeTag::where('tag_id', $this->id)
-            ->where('cafe_id', $cafe->id)
+        return EntityTag::where('tag_id', $this->id)
+            ->where('entity_id', $cafe->id)
             ->where('is_reported', '0')
             ->count();
     }
 
     function isUsed($user, $cafe)
     {
-        return CafeTag::where('tag_id', $this->id)
+        return EntityTag::where('tag_id', $this->id)
             ->where('user_id', $user->id)
-            ->where('cafe_id', $cafe->id)
+            ->where('entity_id', $cafe->id)
             ->count() > 0 ? true : false;
     }
 
     function isApplied($user, $cafe)
     {
-        return CafeTag::where('tag_id', $this->id)
+        return EntityTag::where('tag_id', $this->id)
             ->where('user_id', $user->id)
-            ->where('cafe_id', $cafe->id)
+            ->where('entity_id', $cafe->id)
             ->where('is_reported', '0')
             ->count() > 0 ? true : false;
     }
 
     function isReported($user, $cafe)
     {
-        return CafeTag::where('tag_id', $this->id)
+        return EntityTag::where('tag_id', $this->id)
             ->where('user_id', $user->id)
-            ->where('cafe_id', $cafe->id)
+            ->where('entity_id', $cafe->id)
             ->where('is_reported', '1')
             ->count() > 0 ? true : false;
     }
 
-    function cafeTags()
+    function entityTags()
     {
-        return $this->hasMany('App\CafeTag');
+        return $this->hasMany('App\EntityTag');
     }
 
 }
