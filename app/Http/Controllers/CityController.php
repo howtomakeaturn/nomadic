@@ -79,9 +79,9 @@ class CityController extends BaseController
 
     function getShop($id)
     {
-        $targetCafe = \App\Cafe::find($id);
+        $targetEntity = Entity::find($id);
 
-        $city = $targetCafe->city;
+        $city = $targetEntity->city;
 
         session(['mode' => 'list']);
 
@@ -93,36 +93,11 @@ class CityController extends BaseController
 
         $fields = City::getFields($city);
 
-        $cafes = Cafe::where('city', $city)->where('status', 10)->get();
-
-        $new = collect([]);
-        $donated = collect([]);
-
-        foreach ($cafes as $index => $cafe) {
-            if ($cafe->is_donated) {
-                $donated->push($cafe);
-                $cafes->forget($index);
-            } else if ($cafe->opening_date !== null) {
-                $new->push($cafe);
-                $cafes->forget($index);
-            }
-        }
-
-        $new = $new->sortBy('opening_date');
-
-        $donated = $donated->shuffle();
-
-        foreach ($new as $c) {
-            $cafes->prepend($c);
-        }
-
-        foreach ($donated as $c) {
-            $cafes->prepend($c);
-        }
+        $entities = Entity::where('city', $city)->where('status', 10)->get();
 
         $agent = new \Jenssegers\Agent\Agent();
 
-        return view($this->getView($city), ['cafes' => $cafes, 'fields' => $fields, 'targetCafe' => $targetCafe]);
+        return view($this->getView($city), ['entities' => $entities, 'fields' => $fields, 'targetEntity' => $targetEntity]);
     }
 
     function getDiscovery($city)

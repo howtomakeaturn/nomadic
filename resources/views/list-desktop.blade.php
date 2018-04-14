@@ -20,8 +20,8 @@
 
 <script>
     $(document).ready(function(){
-        @if(isset($targetCafe))
-        openModalByUuid('{{ $targetCafe->id }}', 'list');
+        @if(isset($targetEntity))
+        openModalByUuid('{{ $targetEntity->id }}', 'list');
         @endif
     });
 </script>
