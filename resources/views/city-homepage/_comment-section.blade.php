@@ -19,7 +19,7 @@
                                     <a href='#'>{{$comment->user->name}}</a>
                                     -->
                                     對
-                                    <a href='/shop/{{$comment->cafe->id}}'>[{{$comment->cafe->presentCity()}}] {{$comment->cafe->name}}</a>
+                                    <a href='/shop/{{$comment->entity->id}}'>[{{$comment->entity->presentCity()}}] {{$comment->entity->name}}</a>
                                     留言
                                 </div>
                                 <div class='bottom'>

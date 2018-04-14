@@ -130,7 +130,7 @@
     </div>
 
 
-    <div style='text-align: center; margin-bottom: 30px; background-color: #E0F7FA; padding-bottom: 15px; padding-left: 15px; padding-right: 15px;'>
+    <div style='text-align: center; margin-bottom: 30px; background-color: #F5F5F5; padding-bottom: 15px; padding-left: 15px; padding-right: 15px;'>
         @foreach(App\City::getFeaturedTags(Layout::getCity())->take(Layout::isMobile() ? 9 : 25) as $set)
             <a class='cafe-tag' href='/{{Layout::getCity()}}/tag/{{$set['id']}}'>
                 {{$set['name']}}
