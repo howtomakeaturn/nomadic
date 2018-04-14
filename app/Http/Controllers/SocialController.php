@@ -201,7 +201,7 @@ class SocialController extends BaseController
     function addComment()
     {
         $c = new Comment();
-        $c->cafe_id = Request::get('cafe_id');
+        $c->entity_id = Request::get('entity_id');
         $c->body = Request::get('body');
         $c->user_id = Auth::user()->id;
         $c->save();

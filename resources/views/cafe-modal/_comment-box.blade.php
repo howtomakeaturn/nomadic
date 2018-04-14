@@ -71,24 +71,12 @@
                 $button.click(function(){
 
                     if (store.text.trim() != '') {
-                        /*
-                        store.comments.push({
-                            body: store.text,
-                            avatar: store.userAvatar,
-                            timestamp: moment().unix()
-                        });
-
-                        render();
-
-                        $.post('/ajax/comment', {cafe_id: store.cafeId, _token: store.token, body: store.text});
-                        */
-
                         $button.html('處理中...');
 
                         $button.addClass('disabled');
 
                         post('/add-comment', {
-                            cafe_id: store.cafeId,
+                            entity_id: store.cafeId,
                             body: store.text,
                             _token: '{{csrf_token()}}'
                         });
@@ -100,7 +88,7 @@
                 $e.append($textarea);
                 $e.append($button);
             } else {
-                $link = new $("<a href='/login?cafe_id={{$entity->id}}&path=/shop/{{$entity->id}}' class='btn btn-info btn-sm'><i class='fa fa-commenting-o'></i>&nbsp;{{trans('util.action.comment')}}</a>");
+                $link = new $("<a href='/login?entity_id={{$entity->id}}&path=/shop/{{$entity->id}}' class='btn btn-info btn-sm'><i class='fa fa-commenting-o'></i>&nbsp;{{trans('util.action.comment')}}</a>");
                 $e.append($link);
             }
         }
