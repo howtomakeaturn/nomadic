@@ -21,7 +21,7 @@
 
                 @include('_star-rating-form-content')
 
-                <input type="hidden" name="cafe_id" value="{{ $entity->id }}">
+                <input type="hidden" name="entity_id" value="{{ $entity->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" onclick="return wannaSubmitForm();" class="btn btn-primary btn-lg">送出評分</button>
 

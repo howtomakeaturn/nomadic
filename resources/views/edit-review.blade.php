@@ -18,9 +18,9 @@
                 </button>
             </form>
 
-            <h3>您已經對「<span class='text-primary'>{{ $cafe->name }}</span>」評分過了。</h3>
+            <h3>您已經對「<span class='text-primary'>{{ $entity->name }}</span>」評分過了。</h3>
             <p style='margin-top: 15px; margin-bottom: 10px;'>
-                下面是您對「{{$cafe->name}}」的評分，您隨時可以修改。
+                下面是您對「{{$entity->name}}」的評分，您隨時可以修改。
             </p>
         </div>
     </div>

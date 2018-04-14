@@ -116,13 +116,13 @@ class SocialController extends BaseController
     }
 
     function submitReview(){
-        $cafe = Cafe::find(Request::get('cafe_id'));
+        $entity = Entity::find(Request::get('entity_id'));
 
-        $review = Review::where('cafe_id', $cafe->id)
+        $review = Review::where('entity_id', $entity->id)
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('notice', ['title' => '您已經替' . $cafe->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
+            return view('notice', ['title' => '您已經替' . $entity->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
         }
 
         $r = new Review();
@@ -131,7 +131,7 @@ class SocialController extends BaseController
 
         if ($error) return view('notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
 
-        $r->cafe_id = Request::get('cafe_id');
+        $r->entity_id = Request::get('entity_id');
 
         $r->user_id = Auth::user()->id;
 
