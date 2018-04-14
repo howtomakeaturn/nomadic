@@ -332,17 +332,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
     });
 
     Route::get('/ajax/modal/{id}', function($id){
-        $cafe = App\Cafe::find($id);
+        $entity = App\Entity::find($id);
 
-        $fields = App\City::getFields($cafe->city);
+        $fields = App\City::getFields($entity->city);
 
-        Layout::setCity($cafe->city);
+        Layout::setCity($entity->city);
 
         App\SystemEvent::track('view-shop', [
-            'id' => $cafe->id,
+            'id' => $entity->id,
             'mode' => Request::get('mode')
         ]);
 
-        return view('_cafe-modal', ['cafe' => $cafe, 'fields' => $fields]);
+        return view('_cafe-modal', ['entity' => $entity, 'fields' => $fields]);
     });
 });
