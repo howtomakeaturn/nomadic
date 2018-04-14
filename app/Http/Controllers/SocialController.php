@@ -14,6 +14,7 @@ use App\Recommendation;
 use App\Comment;
 use App\Review;
 use App\Cafe;
+use App\Entity;
 
 class SocialController extends BaseController
 {
@@ -102,16 +103,16 @@ class SocialController extends BaseController
             return redirect("login?&path=/review/$id&action=review");
         }
 
-        $cafe = Cafe::find($id);
+        $entity = Entity::find($id);
 
-        $review = Review::where('cafe_id', $id)
+        $review = Review::where('entity_id', $id)
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('edit-review', ['cafe' => $cafe, 'review' => $review]);
+            return view('edit-review', ['entity' => $entity, 'review' => $review]);
         }
 
-        return view('review', ['cafe' => $cafe]);
+        return view('review', ['entity' => $entity]);
     }
 
     function submitReview(){

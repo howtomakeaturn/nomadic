@@ -8,9 +8,9 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-12'>
-            <h3>您正在對「<a href='/shop/{{$cafe->id}}'><span class='text-primary'>{{ $cafe->name }}</span></a>」評分。</h3>
+            <h3>您正在對「<a href='/shop/{{$entity->id}}'><span class='text-primary'>{{ $entity->name }}</span></a>」評分。</h3>
             <p style='margin-top: 15px; margin-bottom: 10px;'>
-                如果之後對「{{$cafe->name}}」有新評價，您隨時可以回來修改評分。
+                如果之後對「{{$entity->name}}」有新評價，您隨時可以回來修改評分。
             </p>
         </div>
     </div>
@@ -21,7 +21,7 @@
 
                 @include('_star-rating-form-content')
 
-                <input type="hidden" name="cafe_id" value="{{ $cafe->id }}">
+                <input type="hidden" name="cafe_id" value="{{ $entity->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" onclick="return wannaSubmitForm();" class="btn btn-primary btn-lg">送出評分</button>
 
