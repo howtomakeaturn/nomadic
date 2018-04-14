@@ -175,7 +175,7 @@ Route::get('/editing/{id}', function($id){
 });
 
 Route::post('/submit-editing', function(){
-    $cafe = App\Cafe::find(Request::get('cafe_id'));
+    $entity = App\Entity::find(Request::get('entity_id'));
 
     $infoFields = Request::only(getInfoKeys());
 
@@ -185,7 +185,7 @@ Route::post('/submit-editing', function(){
 
     $e->info_fields = json_encode($infoFields);
 
-    $e->cafe_id = Request::get('cafe_id');
+    $e->entity_id = Request::get('entity_id');
 
     $e->user_id = Auth::check() ? Auth::user()->id : 0;
 

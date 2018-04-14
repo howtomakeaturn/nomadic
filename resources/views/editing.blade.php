@@ -26,7 +26,7 @@
                 <br>
                 @endforeach
 
-                <input type="hidden" name="cafe_id" value="{{ $entity->id }}">
+                <input type="hidden" name="entity_id" value="{{ $entity->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" class="btn btn-primary btn-lg">送出欄位修改建議</button>
 
