@@ -97,4 +97,18 @@ class UsersVisitPageTest extends TestCase
             ->see('<span class="green">3</span>');
     }
 
+    function testBasicExample()
+    {
+        $name = md5(uniqid());
+
+        $city = array_keys(config('city'))[0];
+
+        $response = $this->call('POST', '/contribute', [
+            'name' => $name,
+            'city' => $city,
+        ]);
+
+        $this->assertEquals(200, $response->status());
+    }
+
 }
