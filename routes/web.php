@@ -168,9 +168,9 @@ Route::get('/editing/{id}', function($id){
         return redirect("login?&path=/editing/$id");
     }
 
-    $cafe = App\Cafe::find($id);
+    $entity = App\Entity::find($id);
 
-    return view('editing', ['cafe' => $cafe]);
+    return view('editing', ['entity' => $entity]);
 
 });
 
