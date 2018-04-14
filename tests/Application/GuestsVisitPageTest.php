@@ -91,5 +91,4 @@ class GuestsVisitPageTest extends TestCase
         $this->visit("/ajax/modal/$id?mode=list")
             ->see($name);
     }
-
 }

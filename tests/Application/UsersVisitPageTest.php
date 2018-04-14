@@ -33,6 +33,8 @@ class UsersVisitPageTest extends TestCase
         $entity->status = Entity::APPROVED_STATUS;
 
         $entity->save();
+
+        return $entity;
     }
 
     function loginAsUser()
@@ -111,4 +113,17 @@ class UsersVisitPageTest extends TestCase
         $this->assertEquals(200, $response->status());
     }
 
+    function test_entity_ajax_modal_page()
+    {
+        $city = array_keys(config('city'))[0];
+
+        $name = md5(uniqid());
+
+        $entity = $this->insertEntity($name);
+
+        $id = $entity->id;
+
+        $this->visit("/ajax/modal/$id?mode=list")
+            ->see($name);
+    }
 }
