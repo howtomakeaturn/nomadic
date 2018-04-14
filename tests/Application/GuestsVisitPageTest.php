@@ -91,4 +91,18 @@ class GuestsVisitPageTest extends TestCase
         $this->visit("/ajax/modal/$id?mode=list")
             ->see($name);
     }
+
+    function test_entity_page()
+    {
+        $city = array_keys(config('city'))[0];
+
+        $name = md5(uniqid());
+
+        $entity = $this->insertEntity($name);
+
+        $id = $entity->id;
+
+        $this->visit("/shop/$id");
+    }
+
 }
