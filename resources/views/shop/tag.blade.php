@@ -12,41 +12,41 @@
 <div class='container'>
     <div class="row no-padding">
         <div class="col-md-2" style='padding-left: 5px; padding-right: 5px;'>
-            <h4>標籤編輯：{{$cafe->name}}</h4>
+            <h4>標籤編輯：{{$entity->name}}</h4>
         </div>
         <div class='col-md-4' style='padding-left: 5px; padding-right: 5px;'>
             <div class='tag-section'>
                 <div>使用者給這間店的熱門標籤：</div>
                 <br>
-                @if($cafe->tags->count() === 0)
+                @if($entity->tags->count() === 0)
                 <i>還沒有使用者給這間店標籤。</i>
                 @endif
 
-                @foreach($cafe->uniqueTags()->sortByDesc(function($tag)use($cafe){return $tag->countOnCafe($cafe);}) as $tag)
+                @foreach($entity->uniqueTags()->sortByDesc(function($tag)use($entity){return $tag->countOnCafe($entity);}) as $tag)
                 <div class='tag-entry'>
                     <div class='tag-box'>
                         {{$tag->name}}
                     </div>
 
-                    @if(!$tag->isUsed(Auth::user(), $cafe))
+                    @if(!$tag->isUsed(Auth::user(), $entity))
                         @include('shop/tag/_report-tag')
                         @include('shop/tag/_apply-tag')
                     @else
-                        @if($tag->isApplied(Auth::user(), $cafe))
+                        @if($tag->isApplied(Auth::user(), $entity))
                             <form style='display: inline;' method="post" action=/shop/unapply-tag>
                                 {{csrf_field()}}
-                                <input type='hidden' name='cafe_id' value='{{$cafe->id}}'>
+                                <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
                                 <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                                 <button type="submit" class="btn-success">
                                     (已同意)
                                 </button>
                             </form>
-                        @elseif($tag->isReported(Auth::user(), $cafe))
+                        @elseif($tag->isReported(Auth::user(), $entity))
                             @include('shop/tag/_unreport-tag')
                         @endif
                     @endif
 
-                    <i><small>有{{$tag->countOnCafe($cafe)}}人給這標籤</small></i>
+                    <i><small>有{{$tag->countOnCafe($entity)}}人給這標籤</small></i>
                 </div>
                 @endforeach
             </div>
@@ -68,7 +68,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/unapply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$cafe->id}}'>
+                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                             <i class="fa fa-minus" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                 <div>
                 <form method="post" action='/shop/new-tag'>
                     {{csrf_field()}}
-                    <input type='hidden' name='cafe_id' value='{{$cafe->id}}'>
+                    <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
                     <input type='text' name='tag_name' placeholder="輸入標籤" required>
                     <button type='submit'>新增</button>
                 </form>
@@ -119,7 +119,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/apply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$cafe->id}}'>
+                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                         <i class="fa fa-plus" aria-hidden="true"></i>
@@ -147,7 +147,7 @@
 
                     <form style='display: inline;' method="post" action=/shop/apply-tag>
                         {{csrf_field()}}
-                        <input type='hidden' name='cafe_id' value='{{$cafe->id}}'>
+                        <input type='hidden' name='cafe_id' value='{{$entity->id}}'>
                         <input type='hidden' name='tag_id' value='{{$tag->id}}'>
                         <button type="submit">
                         <i class="fa fa-plus" aria-hidden="true"></i>

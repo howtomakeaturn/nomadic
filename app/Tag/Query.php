@@ -10,7 +10,7 @@ class Query
 
     function getAllByUserOnCafe($user, $cafe)
     {
-        $rows = DB::table('cafe_tag')->where('cafe_id', $cafe->id)
+        $rows = DB::table('entity_tag')->where('entity_id', $cafe->id)
             ->where('user_id', $user->id)
             ->where('is_reported', '0')
             ->get();
@@ -28,7 +28,7 @@ class Query
 
     function getAllByUserNotOnCafe($user, $cafe)
     {
-        $rows = DB::table('cafe_tag')->where('cafe_id', '!=', $cafe->id)
+        $rows = DB::table('entity_tag')->where('entity_id', '!=', $cafe->id)
             ->where('user_id', $user->id)
             ->get();
 
@@ -55,7 +55,7 @@ class Query
 
     function getAllByNotUserNotOnCafe($user, $cafe)
     {
-        $rows = DB::table('cafe_tag')->where('cafe_id', '!=', $cafe->id)
+        $rows = DB::table('entity_tag')->where('entity_id', '!=', $cafe->id)
             ->where('user_id', '!=', $user->id)
             ->get();
 

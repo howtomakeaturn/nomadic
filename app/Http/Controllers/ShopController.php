@@ -10,6 +10,7 @@ use DB;
 use Layout;
 use Config;
 use App\Cafe;
+use App\Entity;
 use App\City;
 use App\CafeTag;
 use App\Tag;
@@ -51,17 +52,17 @@ class ShopController extends BaseController
             return redirect("login?&path=/shop/$id/tag");
         }
 
-        $cafe = Cafe::find($id);
+        $entity = Entity::find($id);
 
         $query = new \App\Tag\Query();
 
-        $userTags = $query->getAllByUserOnCafe(Auth::user(), $cafe);
+        $userTags = $query->getAllByUserOnCafe(Auth::user(), $entity);
 
-        $userOtherTags = $query->getAllByUserNotOnCafe(Auth::user(), $cafe);
+        $userOtherTags = $query->getAllByUserNotOnCafe(Auth::user(), $entity);
 
-        $otherTags = $query->getAllByNotUserNotOnCafe(Auth::user(), $cafe);
+        $otherTags = $query->getAllByNotUserNotOnCafe(Auth::user(), $entity);
 
-        return view('shop/tag', compact('cafe', 'userTags', 'userOtherTags', 'otherTags'));
+        return view('shop/tag', compact('entity', 'userTags', 'userOtherTags', 'otherTags'));
     }
 
     function json($id)
