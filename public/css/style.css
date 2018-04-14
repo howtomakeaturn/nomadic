@@ -10,18 +10,18 @@ body {
 }
 
 .row.no-padding > [class*='col-'] {
-  padding-right:0;
-  padding-left:0;
+    padding-right:0;
+    padding-left:0;
 }
 
 .row.small-padding {
-  margin-left: -5px;
-  margin-right: -5px;
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
 .row.small-padding > [class*='col-'] {
-  padding-right:5px;
-  padding-left:5px;
+    padding-right:5px;
+    padding-left:5px;
 }
 
 td {
@@ -120,7 +120,8 @@ td.-large {
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #E0F7FA;
+    background-color: #F5F5F5;
+    border-radius: 5px;
 }
 .city-box .name {
     font-size: 16px;
