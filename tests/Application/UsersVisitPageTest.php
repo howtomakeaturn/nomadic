@@ -126,4 +126,46 @@ class UsersVisitPageTest extends TestCase
         $this->visit("/ajax/modal/$id?mode=list")
             ->see($name);
     }
+
+    function test_tag_page()
+    {
+      $city = array_keys(config('city'))[0];
+
+      $name = md5(uniqid());
+
+      $entity = $this->insertEntity($name);
+
+      $id = $entity->id;
+
+      $this->visit("/shop/$id/tag")
+          ->see($name);
+    }
+
+    function test_review_page()
+    {
+      $city = array_keys(config('city'))[0];
+
+      $name = md5(uniqid());
+
+      $entity = $this->insertEntity($name);
+
+      $id = $entity->id;
+
+      $this->visit("/review/$id")
+          ->see($name);
+    }
+
+    function test_editing_page()
+    {
+      $city = array_keys(config('city'))[0];
+
+      $name = md5(uniqid());
+
+      $entity = $this->insertEntity($name);
+
+      $id = $entity->id;
+
+      $this->visit("/editing/$id")
+          ->see($name);
+    }
 }
