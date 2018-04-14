@@ -196,12 +196,12 @@ class CityController extends BaseController
 
         $tag = \App\Tag::find($tagId);
 
-        $rows = \App\CafeTag::where('tag_id', $tagId)->get();
+        $rows = \App\EntityTag::where('tag_id', $tagId)->get();
 
         $cafeIds = [];
 
         foreach ($rows as $row) {
-            $cafe = Cafe::find($row->cafe_id);
+            $cafe = Entity::find($row->entity_id);
 
             if ($cafe->city !== $city) continue;
 
@@ -210,7 +210,7 @@ class CityController extends BaseController
             $cafeIds[] = $cafe->id;
         }
 
-        $cafes = Cafe::findMany($cafeIds);
+        $cafes = Entity::findMany($cafeIds);
 
         $latArr = [];
         $lngArr = [];
