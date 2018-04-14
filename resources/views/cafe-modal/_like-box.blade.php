@@ -1,9 +1,9 @@
-<div style='margin-top: 15px;' id='like-box-{{$cafe->id}}'>
+<div style='margin-top: 15px;' id='like-box-{{$entity->id}}'>
 </div>
 
 <script>
     (function() {
-        var $e = $('#like-box-{{$cafe->id}}');
+        var $e = $('#like-box-{{$entity->id}}');
 
         var store = {
             count: 0,
@@ -11,13 +11,13 @@
             visited: false,
             userAvatar: '',
             userLogined: false,
-            cafeId: '{{$cafe->id}}',
+            cafeId: '{{$entity->id}}',
             token: '{{csrf_token()}}'
         };
 
-        store.count = {{$cafe->recommendations->count()}};
+        store.count = {{$entity->recommendations->count()}};
 
-        @foreach($cafe->recommendations as $rec)
+        @foreach($entity->recommendations as $rec)
             store.visits.push('{{$rec->user->profile->avatar}}');
         @endforeach
 
@@ -26,7 +26,7 @@
             store.userAvatar = '{{Auth::user()->profile->avatar}}';
         @endif
 
-        @if(Auth::check() && is_cafe_recommended_by_user($cafe->id, Auth::user()->id))
+        @if(Auth::check() && is_cafe_recommended_by_user($entity->id, Auth::user()->id))
             store.visited = true;
         @endif
 
@@ -63,7 +63,7 @@
                     $e.append($button);
                 }
             } else {
-                $link = new $("<a href='/login?cafe_id={{$cafe->id}}&path=/shop/{{$cafe->id}}&action=recommend' class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{Config::get('nomadic.info-modal.check-in')}}</a>");
+                $link = new $("<a href='/login?cafe_id={{$entity->id}}&path=/shop/{{$entity->id}}&action=recommend' class='btn btn-info btn-sm'><i class='fa fa-map-marker'></i>&nbsp;{{Config::get('nomadic.info-modal.check-in')}}</a>");
                 $e.append($link);
             }
         }

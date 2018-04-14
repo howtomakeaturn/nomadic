@@ -167,13 +167,13 @@ function get_recommendation_avatars($id)
 
 function is_cafe_recommended_by_user($cafe_id, $user_id)
 {
-    return App\Recommendation::where('cafe_id', $cafe_id)
+    return App\Recommendation::where('entity_id', $cafe_id)
         ->where('user_id', $user_id)->count() ? true : false;
 }
 
 function get_comments($id)
 {
-    $comments = App\Comment::where('cafe_id', $id)->get();
+    $comments = App\Comment::where('entity_id', $id)->get();
 
     return $comments;
 }
