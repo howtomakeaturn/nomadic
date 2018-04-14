@@ -48,7 +48,7 @@
                         index = store.visits.indexOf(store.userAvatar);
                         store.visits.splice(index, 1);
                         render();
-                        $.post('/ajax/cancel-visit', {cafe_id: store.cafeId, _token: store.token});
+                        $.post('/ajax/cancel-visit', {entity_id: store.cafeId, _token: store.token});
                     });
                     $e.append($button);
                 } else {
@@ -58,7 +58,7 @@
                         store.count += 1;
                         store.visits.push(store.userAvatar);
                         render();
-                        $.post('/ajax/visit', {cafe_id: store.cafeId, _token: store.token});
+                        $.post('/ajax/visit', {entity_id: store.cafeId, _token: store.token});
                     });
                     $e.append($button);
                 }

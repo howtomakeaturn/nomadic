@@ -54,13 +54,13 @@ class SocialController extends BaseController
 
     function ajaxVisit()
     {
-        $rec = Recommendation::where('cafe_id', Request::get('cafe_id'))
+        $rec = Recommendation::where('entity_id', Request::get('entity_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
         if (!$rec) {
             $rec = new Recommendation();
-            $rec->cafe_id = Request::get('cafe_id');
+            $rec->entity_id = Request::get('entity_id');
             $rec->user_id = Auth::user()->id;
             $rec->save();
         }
@@ -72,7 +72,7 @@ class SocialController extends BaseController
 
     function ajaxCancelVisit()
     {
-        $rec = Recommendation::where('cafe_id', Request::get('cafe_id'))
+        $rec = Recommendation::where('entity_id', Request::get('entity_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
