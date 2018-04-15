@@ -47,19 +47,3 @@ Nomadic 是以 Laravel 5.3 搭配 MySQL 5.5 開發而成
 ## License
 
 Licensed under the GNU General Public License Version 2.0 or later.
-
-## Roadmap
-- naming: cafe -> entity
-- naming: city -> category
-- create new name
-- naming: CafeNomad -> ?
-- .com ? .org ? .io ?
-- support multiple entity type
-- support multiple mode login
-- support map mode
-- set up official page
-- i18n
-- upgrade to bootstrap 4
-- upgrade to latest laravel version
-- create admin panel with tabler
-- improve the discussion feature with flarum?
