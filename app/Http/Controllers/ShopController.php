@@ -10,8 +10,10 @@ use DB;
 use Layout;
 use Config;
 use App\Cafe;
+use App\Entity;
 use App\City;
 use App\CafeTag;
+use App\EntityTag;
 use App\Tag;
 use CafeNomad;
 use App\SystemEvent;
@@ -51,17 +53,17 @@ class ShopController extends BaseController
             return redirect("login?&path=/shop/$id/tag");
         }
 
-        $cafe = Cafe::find($id);
+        $entity = Entity::find($id);
 
         $query = new \App\Tag\Query();
 
-        $userTags = $query->getAllByUserOnCafe(Auth::user(), $cafe);
+        $userTags = $query->getAllByUserOnCafe(Auth::user(), $entity);
 
-        $userOtherTags = $query->getAllByUserNotOnCafe(Auth::user(), $cafe);
+        $userOtherTags = $query->getAllByUserNotOnCafe(Auth::user(), $entity);
 
-        $otherTags = $query->getAllByNotUserNotOnCafe(Auth::user(), $cafe);
+        $otherTags = $query->getAllByNotUserNotOnCafe(Auth::user(), $entity);
 
-        return view('shop/tag', compact('cafe', 'userTags', 'userOtherTags', 'otherTags'));
+        return view('shop/tag', compact('entity', 'userTags', 'userOtherTags', 'otherTags'));
     }
 
     function json($id)
@@ -79,37 +81,37 @@ class ShopController extends BaseController
 
         $tag = Tag::manualAdd(Request::get('tag_name'));
 
-        $cafeTag = new CafeTag();
+        $entityTag = new EntityTag();
 
-        $cafeTag->cafe_id = Request::get('cafe_id');
+        $entityTag->entity_id = Request::get('entity_id');
 
-        $cafeTag->tag_id = $tag->id;
+        $entityTag->tag_id = $tag->id;
 
-        $cafeTag->user_id = Auth::user()->id;
+        $entityTag->user_id = Auth::user()->id;
 
-        $cafeTag->save();
+        $entityTag->save();
 
         return redirect()->back();
     }
 
     function applyTag()
     {
-        $cafeTag = new CafeTag();
+        $entityTag = new EntityTag();
 
-        $cafeTag->cafe_id = Request::get('cafe_id');
+        $entityTag->entity_id = Request::get('entity_id');
 
-        $cafeTag->tag_id = Request::get('tag_id');
+        $entityTag->tag_id = Request::get('tag_id');
 
-        $cafeTag->user_id = Auth::user()->id;
+        $entityTag->user_id = Auth::user()->id;
 
-        $cafeTag->save();
+        $entityTag->save();
 
         return redirect()->back();
     }
 
     function unapplyTag()
     {
-        $cafeTag = CafeTag::where('cafe_id', Request::get('cafe_id'))
+        EntityTag::where('entity_id', Request::get('entity_id'))
             ->where('tag_id', Request::get('tag_id'))
             ->where('user_id', Auth::user()->id)
             ->delete();

@@ -10,29 +10,29 @@ class City
 
     static function numOfCafes($city)
     {
-        return Cafe::whereCity($city)->whereStatus(Cafe::APPROVED_STATUS)->count();
+        return Entity::whereCity($city)->whereStatus(Entity::APPROVED_STATUS)->count();
     }
 
     static function numOfComments($city)
     {
-        $num = DB::table('comments')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('comments')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
 
     static function numOfVisits($city)
     {
-        $num = DB::table('recommendations')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('recommendations')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
 
     static function numOfReviews($city)
     {
-        $num = DB::table('reviews')->join('cafes', 'cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $num = DB::table('reviews')->join('entities', 'entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->count();
         return $num;
     }
@@ -63,12 +63,12 @@ class City
 
         foreach ($tags as $tag) {
             /*
-            $count = DB::table('cafe_tag')->join('cafes', 'cafe_id', 'cafes.id')
+            $count = DB::table('cafe_tag')->join('entities', 'entity_id', 'entities.id')
                 ->join('tags', 'tag_id', 'tags.id')
-                ->where('cafes.city', $city)
+                ->where('entities.city', $city)
                 ->where('tags.id', $tag->id)
-                ->distinct('cafe_tag.cafe_id')
-                ->count('cafe_tag.cafe_id');
+                ->distinct('cafe_tag.entity_id')
+                ->count('cafe_tag.entity_id');
             */
 
             $count = $tag->cafe_tag_count;
@@ -90,8 +90,8 @@ class City
     static function getLatestFbFeeds($city, $num)
     {
         $rows = DB::table('fb_feeds')->join('fb_fan_pages', 'fb_fan_page_id', 'fb_fan_pages.id')
-            ->join('cafes', 'fb_fan_pages.cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+            ->join('entities', 'fb_fan_pages.entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->orderBy('fb_feeds.published_at', 'desc')
             ->limit($num)
             ->select('fb_feeds.id')
@@ -108,8 +108,8 @@ class City
 
     static function getLatestComments($city, $num)
     {
-        $rows = DB::table('comments')->join('cafes', 'comments.cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $rows = DB::table('comments')->join('entities', 'comments.entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->orderBy('comments.created_at', 'desc')
             ->limit($num)
             ->select('comments.id')
@@ -126,8 +126,8 @@ class City
 
     static function getLatestReviews($city, $num)
     {
-        $rows = DB::table('reviews')->join('cafes', 'reviews.cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $rows = DB::table('reviews')->join('entities', 'reviews.entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->orderBy('reviews.created_at', 'desc')
             ->limit($num)
             ->select('reviews.id')
@@ -144,8 +144,8 @@ class City
 
     static function getLatestPhotos($city, $num)
     {
-        $rows = DB::table('photos')->join('cafes', 'photos.cafe_id', 'cafes.id')
-            ->where('cafes.city', $city)
+        $rows = DB::table('photos')->join('entities', 'photos.entity_id', 'entities.id')
+            ->where('entities.city', $city)
             ->where('photos.status', Photo::CREATED_STATUS)
             ->orderBy('photos.created_at', 'desc')
             ->limit($num)
@@ -182,12 +182,12 @@ class City
         }
 
         // otherwise, let's calculate for it
-        $cafes = Cafe::whereStatus(Cafe::APPROVED_STATUS)->whereCity($city)->get();
+        $entities = Cafe::whereStatus(Cafe::APPROVED_STATUS)->whereCity($city)->get();
 
         $latArr = [];
         $lngArr = [];
 
-        foreach($cafes as $cafe) {
+        foreach($entities as $cafe) {
             if ($cafe->latitude != 0) {
                 $latArr[] = $cafe->latitude;
                 $lngArr[] = $cafe->longitude;

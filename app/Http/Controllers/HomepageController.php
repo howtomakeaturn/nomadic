@@ -9,6 +9,7 @@ use View;
 use Auth;
 use App\City;
 use App\Cafe;
+use App\Entity;
 use App\Comment;
 use App\Review;
 use App\Photo;
@@ -102,7 +103,7 @@ class HomepageController extends BaseController
             $boxCafes->push($page->cafe);
         }
 
-        $mapCafes = Cafe::whereStatus(Cafe::APPROVED_STATUS)->whereCity('taipei')->inRandomOrder()->limit(50)->get();
+        $mapCafes = Entity::whereStatus(Entity::APPROVED_STATUS)->whereCity('taipei')->inRandomOrder()->limit(50)->get();
 
         $latArr = [];
         $lngArr = [];

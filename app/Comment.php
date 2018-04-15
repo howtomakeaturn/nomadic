@@ -12,9 +12,9 @@ class Comment extends Model
         return $this->belongsTo('App\User');
     }
 
-    function cafe()
+    function entity()
     {
-        return $this->belongsTo('App\Cafe');
+        return $this->belongsTo('App\Entity');
     }
 
 }

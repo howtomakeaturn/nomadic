@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CafeTag extends Model
+class EntityTag extends Model
 {
 
-    protected $table = 'cafe_tag';
+    protected $table = 'entity_tag';
 
     public $incrementing = false;
 

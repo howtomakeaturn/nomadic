@@ -11,7 +11,7 @@ use App\Facebook\FanPage;
 use App\BusinessHour;
 use Laravel\Scout\Searchable;
 
-class Cafe extends Model
+class Entity extends Model
 {
     //use Searchable;
 

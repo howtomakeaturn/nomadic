@@ -1,4 +1,4 @@
-<div id='comment-box-{{$cafe->id}}'>
+<div id='comment-box-{{$entity->id}}'>
 </div>
 
 <script>
@@ -8,11 +8,11 @@
             text: '',
             userAvatar: '',
             userLogined: false,
-            cafeId: '{{$cafe->id}}',
+            cafeId: '{{$entity->id}}',
             token: '{{csrf_token()}}'
         };
 
-        @foreach(get_comments($cafe->id) as $comment)
+        @foreach(get_comments($entity->id) as $comment)
             var obj = {!! $comment->toJson() !!};
 
             store.comments.push({
@@ -29,7 +29,7 @@
             store.userAvatar = '{{Auth::user()->profile->avatar}}';
         @endif
 
-        var $e = $('#comment-box-{{$cafe->id}}');
+        var $e = $('#comment-box-{{$entity->id}}');
 
         function render() {
             $e.empty();
@@ -71,24 +71,12 @@
                 $button.click(function(){
 
                     if (store.text.trim() != '') {
-                        /*
-                        store.comments.push({
-                            body: store.text,
-                            avatar: store.userAvatar,
-                            timestamp: moment().unix()
-                        });
-
-                        render();
-
-                        $.post('/ajax/comment', {cafe_id: store.cafeId, _token: store.token, body: store.text});
-                        */
-
                         $button.html('處理中...');
 
                         $button.addClass('disabled');
 
                         post('/add-comment', {
-                            cafe_id: store.cafeId,
+                            entity_id: store.cafeId,
                             body: store.text,
                             _token: '{{csrf_token()}}'
                         });
@@ -100,7 +88,7 @@
                 $e.append($textarea);
                 $e.append($button);
             } else {
-                $link = new $("<a href='/login?cafe_id={{$cafe->id}}&path=/shop/{{$cafe->id}}' class='btn btn-info btn-sm'><i class='fa fa-commenting-o'></i>&nbsp;{{trans('util.action.comment')}}</a>");
+                $link = new $("<a href='/login?entity_id={{$entity->id}}&path=/shop/{{$entity->id}}' class='btn btn-info btn-sm'><i class='fa fa-commenting-o'></i>&nbsp;{{trans('util.action.comment')}}</a>");
                 $e.append($link);
             }
         }

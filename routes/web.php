@@ -168,14 +168,14 @@ Route::get('/editing/{id}', function($id){
         return redirect("login?&path=/editing/$id");
     }
 
-    $cafe = App\Cafe::find($id);
+    $entity = App\Entity::find($id);
 
-    return view('editing', ['cafe' => $cafe]);
+    return view('editing', ['entity' => $entity]);
 
 });
 
 Route::post('/submit-editing', function(){
-    $cafe = App\Cafe::find(Request::get('cafe_id'));
+    $entity = App\Entity::find(Request::get('entity_id'));
 
     $infoFields = Request::only(getInfoKeys());
 
@@ -185,7 +185,7 @@ Route::post('/submit-editing', function(){
 
     $e->info_fields = json_encode($infoFields);
 
-    $e->cafe_id = Request::get('cafe_id');
+    $e->entity_id = Request::get('entity_id');
 
     $e->user_id = Auth::check() ? Auth::user()->id : 0;
 
@@ -332,17 +332,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
     });
 
     Route::get('/ajax/modal/{id}', function($id){
-        $cafe = App\Cafe::find($id);
+        $entity = App\Entity::find($id);
 
-        $fields = App\City::getFields($cafe->city);
+        $fields = App\City::getFields($entity->city);
 
-        Layout::setCity($cafe->city);
+        Layout::setCity($entity->city);
 
         App\SystemEvent::track('view-shop', [
-            'id' => $cafe->id,
+            'id' => $entity->id,
             'mode' => Request::get('mode')
         ]);
 
-        return view('_cafe-modal', ['cafe' => $cafe, 'fields' => $fields]);
+        return view('_cafe-modal', ['entity' => $entity, 'fields' => $fields]);
     });
 });

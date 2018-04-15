@@ -34,9 +34,9 @@ class Editing extends Model
 		return $this->presenterInstance;
 	}
 
-    function cafe()
+    function entity()
     {
-        return $this->belongsTo('App\Cafe');
+        return $this->belongsTo('App\Entity');
     }
 
     function user()
@@ -98,17 +98,17 @@ class Editing extends Model
 
         $this->save();
 
-        $arr = json_decode($this->cafe->info_fields, true);
+        $arr = json_decode($this->entity->info_fields, true);
 
         foreach (getInfoKeys() as $field) {
             if ($this->getValue($field) !== '') $arr[$field] = $this->getValue($field);
         }
 
-        $this->cafe->name = $this->name;
+        $this->entity->name = $this->name;
 
-        $this->cafe->info_fields = json_encode($arr);
+        $this->entity->info_fields = json_encode($arr);
 
-        $this->cafe->save();
+        $this->entity->save();
     }
 
 }

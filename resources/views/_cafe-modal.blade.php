@@ -1,10 +1,10 @@
-<div class="modal fade" id="modal-{{$cafe->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-uuid="{{ $cafe->id }}" data-keyboard="false">
+<div class="modal fade" id="modal-{{$entity->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-uuid="{{ $entity->id }}" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel" style='margin-bottom: 10px;'>
-            <span class='cafe-name'>{{$cafe->name}}@if($cafe->status == App\Cafe::CLOSED_STATUS)（已歇業）@endif</span>
+            <span class='cafe-name'>{{$entity->name}}@if($entity->status == App\Entity::CLOSED_STATUS)（已歇業）@endif</span>
         </h4>
         @include('cafe-modal/_like-box')
       </div>
@@ -13,18 +13,18 @@
           <div class="row">
 
               <div class='col-md-12'>
-                  @if($cafe->tags->count() === 0)
+                  @if($entity->tags->count() === 0)
                   <small><i>{{trans('util.text.no-tags-yet')}}</i></small>
                   @endif
 
-                  @foreach($cafe->uniqueTags()->sortByDesc(function($tag)use($cafe){return $tag->countOnCafe($cafe);}) as $tag)
-                  <a class='cafe-tag' href='/{{$cafe->city}}/tag/{{$tag->id}}'>
+                  @foreach($entity->uniqueTags()->sortByDesc(function($tag)use($entity){return $tag->countOnCafe($entity);}) as $tag)
+                  <a class='cafe-tag' href='/{{$entity->city}}/tag/{{$tag->id}}'>
                     {{$tag->name}}
 
-                  <span style='font-size: 12px; vertical-align: super;'>{{$tag->countOnCafe($cafe)}}</span>
+                  <span style='font-size: 12px; vertical-align: super;'>{{$tag->countOnCafe($entity)}}</span>
                   </a>
                   @endforeach
-                  <a href='/shop/{{$cafe->id}}/tag' class='btn btn-info btn-sm' target="_blank">
+                  <a href='/shop/{{$entity->id}}/tag' class='btn btn-info btn-sm' target="_blank">
                       <i class='fa fa-tags'></i>&nbsp;
                       {{trans('util.action.edit-tags')}}
                   </a>
@@ -39,9 +39,9 @@
             <div class="col-xs-6">
               	<div class='rating-box'>
                     {{$field['label']}}
-                    <div class='value {{starClass($cafe->getReviewFieldValue($field['key']))}}'>
-                      @if($cafe->getReviewFieldValue($field['key']))
-                      {{number_format($cafe->getReviewFieldValue($field['key']), 1)}}  ★
+                    <div class='value {{starClass($entity->getReviewFieldValue($field['key']))}}'>
+                      @if($entity->getReviewFieldValue($field['key']))
+                      {{number_format($entity->getReviewFieldValue($field['key']), 1)}}  ★
                       @else
 
                       @endif
@@ -52,15 +52,15 @@
         </div>
         <div class="row">
             <div class='col-xs-12'>
-                @if($cafe->reviews->count() === 0)
+                @if($entity->reviews->count() === 0)
                 <span class='grey' style='font-size: 12px;'>{{trans('util.text.no-reviews')}}</span>
-                @elseif($cafe->reviews->count() === 1)
-                <span class='grey' style='font-size: 12px;'>{{trans('util.text.1-reviews_')}} <a href='/reviewers/{{$cafe->id}}' target='_blank'>{{trans('util.text._1-reviews')}}</a></span>
+                @elseif($entity->reviews->count() === 1)
+                <span class='grey' style='font-size: 12px;'>{{trans('util.text.1-reviews_')}} <a href='/reviewers/{{$entity->id}}' target='_blank'>{{trans('util.text._1-reviews')}}</a></span>
                 @else
-                <span class='grey' style='font-size: 12px;'>{{trans('util.text.n-reviews_')}} <a href='/reviewers/{{$cafe->id}}' target='_blank'>{{$cafe->validReviews()->count()}} {{trans('util.text._n-reviews')}}</a></span>
+                <span class='grey' style='font-size: 12px;'>{{trans('util.text.n-reviews_')}} <a href='/reviewers/{{$entity->id}}' target='_blank'>{{$entity->validReviews()->count()}} {{trans('util.text._n-reviews')}}</a></span>
                 @endif
 
-                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $cafe->id }}'><i class='fa fa-star'></i>&nbsp;{{Config::get('nomadic.info-modal.write-a-review')}}</a>
+                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $entity->id }}'><i class='fa fa-star'></i>&nbsp;{{Config::get('nomadic.info-modal.write-a-review')}}</a>
             </div>
         </div>
         <hr />
@@ -70,7 +70,7 @@
               <div class='rating-box'>
                 {{$field['label']}}
                 <div class='value'>
-                  {{$cafe->getInfoFieldValue($field['key'])}}
+                  {{$entity->getInfoFieldValue($field['key'])}}
                 </div>
               </div>
           </div>
@@ -78,7 +78,7 @@
         </div>
           <div class='row'>
               <div class='col-xs-12'>
-                  <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $cafe->id }}'><i class='fa fa-pencil-square-o'></i>&nbsp;{{trans('util.action.update-info')}}</a>
+                  <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $entity->id }}'><i class='fa fa-pencil-square-o'></i>&nbsp;{{trans('util.action.update-info')}}</a>
               </div>
           </div>
 
@@ -102,22 +102,22 @@
 var parentTitle = '{{ Layout::openGraphTitle() }}';
 
 @if(Request::get('mode') === 'map')
-    var parentPath = '/{{$cafe->city}}/map';
+    var parentPath = '/{{$entity->city}}/map';
 @elseif(Request::get('mode') === 'list')
-    var parentPath = '/{{$cafe->city}}/list';
+    var parentPath = '/{{$entity->city}}/list';
 @elseif(Request::get('mode') === 'flaneur')
-    var parentPath = '/{{$cafe->city}}/flaneur';
+    var parentPath = '/{{$entity->city}}/flaneur';
 @endif
 
 @if(Request::get('mode') !== 'pure')
 
-$('#modal-{{$cafe->id}}').on('hidden.bs.modal', function () {
+$('#modal-{{$entity->id}}').on('hidden.bs.modal', function () {
     document.title = parentTitle;
 
     window.history.pushState(null, parentTitle, parentPath);
 });
 
-$('#modal-{{$cafe->id}}').on('shown.bs.modal', function() {
+$('#modal-{{$entity->id}}').on('shown.bs.modal', function() {
     var title = $(this).find('.cafe-name').text();
 
     var id = $(this).data('uuid');
@@ -142,7 +142,7 @@ $(document).ready(function(){
         var items = [
         ];
 
-        @foreach($cafe->validPhotos() as $index => $photo)
+        @foreach($entity->validPhotos() as $index => $photo)
         <?php $image = '/upload_photos/width-900/' . $photo->name; ?>
         items.push({
             src: '{{$image}}',
@@ -168,8 +168,8 @@ $(document).ready(function(){
         gallery.init();
     };
 
-    $('#modal-{{$cafe->id}} ._thumbnail > img.photo').click(function(){
-        var index = $('#modal-{{$cafe->id}} ._thumbnail > img.photo').index($(this))
+    $('#modal-{{$entity->id}} ._thumbnail > img.photo').click(function(){
+        var index = $('#modal-{{$entity->id}} ._thumbnail > img.photo').index($(this))
         openPhotoSwipe(index);
     });
 

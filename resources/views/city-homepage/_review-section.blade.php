@@ -19,7 +19,7 @@
                                 <a href='#'>{{$review->user->name}}</a>
                                 -->
                                 對
-                                <a href='/shop/{{$review->cafe->id}}'>[{{$review->cafe->presentCity()}}] {{$review->cafe->name}}</a>
+                                <a href='/shop/{{$review->entity->id}}'>[{{$review->entity->presentCity()}}] {{$review->entity->name}}</a>
                                 評分
                             </div>
                             <div class='bottom'>

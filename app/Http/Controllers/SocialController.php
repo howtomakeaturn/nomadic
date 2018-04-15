@@ -14,6 +14,7 @@ use App\Recommendation;
 use App\Comment;
 use App\Review;
 use App\Cafe;
+use App\Entity;
 
 class SocialController extends BaseController
 {
@@ -53,13 +54,13 @@ class SocialController extends BaseController
 
     function ajaxVisit()
     {
-        $rec = Recommendation::where('cafe_id', Request::get('cafe_id'))
+        $rec = Recommendation::where('entity_id', Request::get('entity_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
         if (!$rec) {
             $rec = new Recommendation();
-            $rec->cafe_id = Request::get('cafe_id');
+            $rec->entity_id = Request::get('entity_id');
             $rec->user_id = Auth::user()->id;
             $rec->save();
         }
@@ -71,7 +72,7 @@ class SocialController extends BaseController
 
     function ajaxCancelVisit()
     {
-        $rec = Recommendation::where('cafe_id', Request::get('cafe_id'))
+        $rec = Recommendation::where('entity_id', Request::get('entity_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
@@ -102,26 +103,26 @@ class SocialController extends BaseController
             return redirect("login?&path=/review/$id&action=review");
         }
 
-        $cafe = Cafe::find($id);
+        $entity = Entity::find($id);
 
-        $review = Review::where('cafe_id', $id)
+        $review = Review::where('entity_id', $id)
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('edit-review', ['cafe' => $cafe, 'review' => $review]);
+            return view('edit-review', ['entity' => $entity, 'review' => $review]);
         }
 
-        return view('review', ['cafe' => $cafe]);
+        return view('review', ['entity' => $entity]);
     }
 
     function submitReview(){
-        $cafe = Cafe::find(Request::get('cafe_id'));
+        $entity = Entity::find(Request::get('entity_id'));
 
-        $review = Review::where('cafe_id', $cafe->id)
+        $review = Review::where('entity_id', $entity->id)
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('notice', ['title' => '您已經替' . $cafe->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
+            return view('notice', ['title' => '您已經替' . $entity->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
         }
 
         $r = new Review();
@@ -130,7 +131,7 @@ class SocialController extends BaseController
 
         if ($error) return view('notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
 
-        $r->cafe_id = Request::get('cafe_id');
+        $r->entity_id = Request::get('entity_id');
 
         $r->user_id = Auth::user()->id;
 
@@ -200,7 +201,7 @@ class SocialController extends BaseController
     function addComment()
     {
         $c = new Comment();
-        $c->cafe_id = Request::get('cafe_id');
+        $c->entity_id = Request::get('entity_id');
         $c->body = Request::get('body');
         $c->user_id = Auth::user()->id;
         $c->save();
