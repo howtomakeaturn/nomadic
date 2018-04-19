@@ -8,6 +8,8 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
     Route::get('/home', 'HomepageController@home');
 
+    Route::get('/' . Config::get('nomadic.global.unit-url') . '/{id}', 'CityController@getshop');
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 

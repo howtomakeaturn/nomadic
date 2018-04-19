@@ -102,7 +102,7 @@ class GuestsVisitPageTest extends TestCase
 
         $id = $entity->id;
 
-        $this->visit("/shop/$id");
+        $this->visit("/entity/$id");
     }
 
 }

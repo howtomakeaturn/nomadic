@@ -105,6 +105,8 @@ class UsersVisitPageTest extends TestCase
 
         $city = array_keys(config('city'))[0];
 
+        config(['nomadic.map-enabled' => false]);
+
         $response = $this->call('POST', '/contribute', [
             'name' => $name,
             'city' => $city,
