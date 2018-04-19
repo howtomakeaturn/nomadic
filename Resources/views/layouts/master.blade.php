@@ -6,14 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Module NomadiCore</title>
 
-       <!-- Laravel Mix - CSS File -->
-       <!-- <link rel="stylesheet" href="{{ mix('css/nomadicore.css') }}"> -->
+        <?php
+        /*
+        <!-- Laravel Mix - CSS File -->
+        <!-- <link rel="stylesheet" href="{{ mix('css/nomadicore.css') }}"> -->
+        */
+        ?>
 
     </head>
     <body>
         @yield('content')
 
+        <?php
+        /*
         <!-- Laravel Mix - JS File -->
         <!-- <script src="{{ mix('js/nomadicore.js') }}"></script> -->
+        */
+        ?>
+
     </body>
 </html>
