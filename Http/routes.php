@@ -10,6 +10,16 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
     Route::get('/' . Config::get('nomadic.global.unit-url') . '/{id}', 'CityController@getshop');
 
+    Route::get('/posts', 'PostController@posts');
+    Route::get('/forum', 'PostController@index');
+    Route::get('/post/{id}', 'PostController@post');
+    Route::get('/new-post', 'PostController@create');
+    Route::post('/new-post', 'PostController@createPost');
+    Route::post('/reply-post', 'PostController@replyPost');
+    Route::get('/post/edit/{id}', 'PostController@edit');
+    Route::post('/update-post', 'PostController@updatePost');
+    Route::post('/comment-to-post', 'PostController@commentToPost');
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 
