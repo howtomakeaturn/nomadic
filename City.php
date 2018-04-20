@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Modules\NomadiCore;
 
 use Config;
 use DB;

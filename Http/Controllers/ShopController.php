@@ -9,14 +9,14 @@ use Request;
 use DB;
 use Layout;
 use Config;
-use App\Cafe;
-use App\Entity;
-use App\City;
-use App\CafeTag;
-use App\EntityTag;
-use App\Tag;
+use Modules\NomadiCore\Cafe;
+use Modules\NomadiCore\Entity;
+use Modules\NomadiCore\City;
+use Modules\NomadiCore\CafeTag;
+use Modules\NomadiCore\EntityTag;
+use Modules\NomadiCore\Tag;
 use CafeNomad;
-use App\SystemEvent;
+use Modules\NomadiCore\SystemEvent;
 
 class ShopController extends BaseController
 {

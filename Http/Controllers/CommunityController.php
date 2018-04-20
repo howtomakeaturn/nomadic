@@ -5,7 +5,7 @@ namespace Modules\NomadiCore\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use App\Entity;
+use Modules\NomadiCore\Entity;
 
 class CommunityController extends BaseController
 {

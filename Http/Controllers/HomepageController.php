@@ -4,17 +4,17 @@ namespace Modules\NomadiCore\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 
-use App\Facebook\FanPage;
+use Modules\NomadiCore\Facebook\FanPage;
 use View;
 use Auth;
-use App\City;
-use App\Cafe;
-use App\Entity;
-use App\Comment;
-use App\Review;
-use App\Photo;
+use Modules\NomadiCore\City;
+use Modules\NomadiCore\Cafe;
+use Modules\NomadiCore\Entity;
+use Modules\NomadiCore\Comment;
+use Modules\NomadiCore\Review;
+use Modules\NomadiCore\Photo;
 use Layout;
-use App\Discussion;
+use Modules\NomadiCore\Discussion;
 use Illuminate\Http\Request;
 
 class HomepageController extends BaseController

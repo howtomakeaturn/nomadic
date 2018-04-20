@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Modules\NomadiCore;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;

@@ -9,12 +9,12 @@ use Request;
 use Auth;
 use Config;
 use Layout;
-use App\Wish;
-use App\Recommendation;
-use App\Comment;
-use App\Review;
-use App\Cafe;
-use App\Entity;
+use Modules\NomadiCore\Wish;
+use Modules\NomadiCore\Recommendation;
+use Modules\NomadiCore\Comment;
+use Modules\NomadiCore\Review;
+use Modules\NomadiCore\Cafe;
+use Modules\NomadiCore\Entity;
 
 class SocialController extends BaseController
 {

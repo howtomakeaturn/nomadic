@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tag;
+namespace Modules\NomadiCore\Tag;
 
 use DB;
 use App\Tag;

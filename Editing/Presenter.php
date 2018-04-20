@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Editing;
+namespace Modules\NomadiCore\Editing;
 
 use Config;
 use App\Editing;

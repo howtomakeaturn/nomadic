@@ -4,9 +4,9 @@ namespace Modules\NomadiCore\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 
-use App\Discussion;
-use App\Post;
-use App\PostComment as Comment;
+use Modules\NomadiCore\Discussion;
+use Modules\NomadiCore\Post;
+use Modules\NomadiCore\PostComment as Comment;
 use Auth;
 use Request;
 use Layout;

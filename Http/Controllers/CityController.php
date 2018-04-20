@@ -8,9 +8,9 @@ use Request;
 use DB;
 use Layout;
 use Config;
-use App\Cafe;
-use App\Entity;
-use App\City;
+use Modules\NomadiCore\Cafe;
+use Modules\NomadiCore\Entity;
+use Modules\NomadiCore\City;
 use CafeNomad;
 
 class CityController extends BaseController
