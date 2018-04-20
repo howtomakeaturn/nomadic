@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use App\Entity;
-use App\User;
-use App\Profile;
+use Modules\NomadiCore\Entity;
+use Modules\NomadiCore\User;
+use Modules\NomadiCore\Profile;
 
 class UsersVisitPageTest extends TestCase
 {

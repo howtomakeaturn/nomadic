@@ -3,7 +3,7 @@
 namespace Modules\NomadiCore\Tag;
 
 use DB;
-use App\Tag;
+use Modules\NomadiCore\Tag;
 
 class Query
 {

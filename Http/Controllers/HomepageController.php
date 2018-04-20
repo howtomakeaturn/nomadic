@@ -47,7 +47,7 @@ class HomepageController extends BaseController
         $readyToReviewCafes = collect([]);
 
         foreach ($readyToReviewCafeIds as $id) {
-            $cafe = \App\Cafe::find($id);
+            $cafe = \Modules\NomadiCore\Cafe::find($id);
 
             $readyToReviewCafes->push($cafe);
         }
@@ -78,7 +78,7 @@ class HomepageController extends BaseController
 
         $discussions = \CafeNomad::getDiscussions()->take(3);
 
-        $messages = \App\ChatroomMessage::where('cafe_id', '')->orderBy('created_at', 'desc')->limit(3)->get();
+        $messages = \Modules\NomadiCore\ChatroomMessage::where('cafe_id', '')->orderBy('created_at', 'desc')->limit(3)->get();
 
         $messages = $messages->reverse();
 
@@ -121,7 +121,7 @@ class HomepageController extends BaseController
             $center = ['lat' => 24.042571, 'lng' => 120.9472711, 'zoom' => 8];
         }
 
-        //$fbFeeds = \App\Facebook\Feed::orderBy('published_at', 'desc')->limit($displayNumber)->get();
+        //$fbFeeds = \Modules\NomadiCore\Facebook\Feed::orderBy('published_at', 'desc')->limit($displayNumber)->get();
         $fbFeeds = [];
 
         if (is_null($request->input('beta')))

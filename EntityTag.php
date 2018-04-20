@@ -17,17 +17,17 @@ class EntityTag extends Model
 
     function tag()
     {
-        return $this->belongsTo('App\Tag');
+        return $this->belongsTo('Modules\NomadiCore\Tag');
     }
 
     function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function cafe()
     {
-        return $this->belongsTo('App\Cafe');
+        return $this->belongsTo('Modules\NomadiCore\Cafe');
     }
 
 }

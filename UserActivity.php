@@ -11,7 +11,7 @@ class UserActivity extends Model
 
     function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
 }

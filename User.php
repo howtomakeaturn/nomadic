@@ -30,42 +30,42 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne('App\Profile');
+        return $this->hasOne('Modules\NomadiCore\Profile');
     }
 
     public function recommendations()
     {
-        return $this->hasMany('App\Recommendation');
+        return $this->hasMany('Modules\NomadiCore\Recommendation');
     }
 
     public function wishes()
     {
-        return $this->hasMany('App\Wish');
+        return $this->hasMany('Modules\NomadiCore\Wish');
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Modules\NomadiCore\Comment');
     }
 
     public function reviews()
     {
-        return $this->hasMany('App\Review');
+        return $this->hasMany('Modules\NomadiCore\Review');
     }
 
     public function entityTags()
     {
-        return $this->hasMany('App\EntityTag');
+        return $this->hasMany('Modules\NomadiCore\EntityTag');
     }
 
     public function editings()
     {
-        return $this->hasMany('App\Editing');
+        return $this->hasMany('Modules\NomadiCore\Editing');
     }
 
     public function photos()
     {
-        return $this->hasMany('App\Photo');
+        return $this->hasMany('Modules\NomadiCore\Photo');
     }
 
     function validPhotos()
@@ -77,12 +77,12 @@ class User extends Authenticatable
 
     public function entities()
     {
-        return $this->hasMany('App\Entity');
+        return $this->hasMany('Modules\NomadiCore\Entity');
     }
 
     public function socialCredentials()
     {
-        return $this->hasMany('App\SocialCredential');
+        return $this->hasMany('Modules\NomadiCore\SocialCredential');
     }
 
     function getScore()

@@ -9,12 +9,12 @@ class Wish extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function cafe()
     {
-        return $this->belongsTo('App\Cafe');
+        return $this->belongsTo('Modules\NomadiCore\Cafe');
     }
 
 }

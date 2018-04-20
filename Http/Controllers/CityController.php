@@ -112,7 +112,7 @@ class CityController extends BaseController
 
         Layout::setOpenGraphImage(url('/img/marketing/mm.png'));
 
-        $cafes = \App\Cafe::where('city', $city)->where('status', 10)
+        $cafes = \Modules\NomadiCore\Cafe::where('city', $city)->where('status', 10)
             ->where('latitude', '!=', '0')
             ->where('longitude', '!=', '0')
             ->get();
@@ -187,7 +187,7 @@ class CityController extends BaseController
             $ids[] = $row->id;
         }
 
-        $feeds = \App\Facebook\Feed::findMany($ids);
+        $feeds = \Modules\NomadiCore\Facebook\Feed::findMany($ids);
 
         $feeds = $feeds->sortByDesc('published_at');
 
@@ -198,9 +198,9 @@ class CityController extends BaseController
     {
         $tagId = explode('-', $tagStr)[0];
 
-        $tag = \App\Tag::find($tagId);
+        $tag = \Modules\NomadiCore\Tag::find($tagId);
 
-        $rows = \App\EntityTag::where('tag_id', $tagId)->get();
+        $rows = \Modules\NomadiCore\EntityTag::where('tag_id', $tagId)->get();
 
         $cafeIds = [];
 

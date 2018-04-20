@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use App\Entity;
+use Modules\NomadiCore\Entity;
 
 class GuestsVisitPageTest extends TestCase
 {

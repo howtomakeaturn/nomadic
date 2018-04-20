@@ -22,13 +22,13 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $facebook = Socialite::driver('facebook')->user();
 
-        if ($credential = App\SocialCredential::where('social_id', $facebook->id)->first()) {
+        if ($credential = Modules\NomadiCore\SocialCredential::where('social_id', $facebook->id)->first()) {
 
             Auth::loginUsingId($credential->user_id);
 
         } else {
 
-            $user = new App\User();
+            $user = new Modules\NomadiCore\User();
 
             $email = $facebook->getEmail() ? $facebook->getEmail() : $facebook->getId() . '@facebook.com';
 
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
             $user->save();
 
-            $profile = new App\Profile();
+            $profile = new Modules\NomadiCore\Profile();
 
             $profile->user_id = $user->id;
 
@@ -48,7 +48,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
             $profile->save();
 
-            $credential = new App\SocialCredential();
+            $credential = new Modules\NomadiCore\SocialCredential();
 
             $credential->user_id = $user->id;
 
@@ -61,12 +61,12 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
         }
 
         if (Session::get('action')=='recommend') {
-            $rec = App\Recommendation::where('cafe_id', Session::get('cafe_id'))
+            $rec = Modules\NomadiCore\Recommendation::where('cafe_id', Session::get('cafe_id'))
                 ->where('user_id', Auth::user()->id)
                 ->first();
 
             if (!$rec) {
-                $rec = new App\Recommendation();
+                $rec = new Modules\NomadiCore\Recommendation();
                 $rec->cafe_id = Session::get('cafe_id');
                 $rec->user_id = Auth::user()->id;
                 $rec->save();
@@ -85,7 +85,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
     Route::get('/user/{id}', function($id){
 
-        $user = App\User::find($id);
+        $user = Modules\NomadiCore\User::find($id);
 
         $latArr = [];
         $lngArr = [];
@@ -115,7 +115,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
     Route::get('/user/{id}/map', function($id){
 
-        $user = App\User::find($id);
+        $user = Modules\NomadiCore\User::find($id);
 
         $latArr = [];
         $lngArr = [];
@@ -143,18 +143,18 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
             return redirect("login?&path=/editing/$id");
         }
 
-        $entity = App\Entity::find($id);
+        $entity = Modules\NomadiCore\Entity::find($id);
 
         return view('editing', ['entity' => $entity]);
 
     });
 
     Route::post('/submit-editing', function(){
-        $entity = App\Entity::find(Request::get('entity_id'));
+        $entity = Modules\NomadiCore\Entity::find(Request::get('entity_id'));
 
         $infoFields = Request::only(getInfoKeys());
 
-        $e = new App\Editing();
+        $e = new Modules\NomadiCore\Editing();
 
         $e->name = Request::get('name');
 
@@ -182,7 +182,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     });
 
     Route::post('upload-photo', function(){
-        $service = new App\UploadPhoto();
+        $service = new Modules\NomadiCore\UploadPhoto();
 
         $photo = $service->handle();
 
@@ -197,11 +197,11 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     });
 
     Route::post('/remove-photo', function(){
-        $p = \App\Photo::where('id', Request::get('photo_id'))
+        $p = \Modules\NomadiCore\Photo::where('id', Request::get('photo_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
-        $p->status = \App\Photo::HIDDEN_STATUS;
+        $p->status = \Modules\NomadiCore\Photo::HIDDEN_STATUS;
 
         $p->save();
 
@@ -209,7 +209,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     });
 
     Route::post('/remove-post', function(){
-        $p = \App\Post::where('id', Request::get('post_id'))
+        $p = \Modules\NomadiCore\Post::where('id', Request::get('post_id'))
             ->where('user_id', Auth::user()->id)
             ->first();
 
@@ -282,13 +282,13 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     Route::get("/{city}/tag/{tagStr}", 'CityController@tag');
 
     Route::get('/ajax/modal/{id}', function($id){
-        $entity = App\Entity::find($id);
+        $entity = Modules\NomadiCore\Entity::find($id);
 
-        $fields = App\City::getFields($entity->city);
+        $fields = Modules\NomadiCore\City::getFields($entity->city);
 
         Layout::setCity($entity->city);
 
-        App\SystemEvent::track('view-shop', [
+        Modules\NomadiCore\SystemEvent::track('view-shop', [
             'id' => $entity->id,
             'mode' => Request::get('mode')
         ]);
@@ -299,7 +299,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     Route::get('/community', function(){
         $page = Request::get('page') ? : 1;
 
-        $users = App\User::all();
+        $users = Modules\NomadiCore\User::all();
 
         $users = $users->filter(function($user){
             return $user->profile->score > 0;

@@ -9,17 +9,17 @@ class Post extends Model
 
     function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function discussion()
     {
-        return $this->belongsTo('App\Discussion');
+        return $this->belongsTo('Modules\NomadiCore\Discussion');
     }
 
     function comments()
     {
-        return $this->hasMany('App\PostComment');
+        return $this->hasMany('Modules\NomadiCore\PostComment');
     }
 
 }

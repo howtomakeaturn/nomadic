@@ -9,12 +9,12 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function entity()
     {
-        return $this->belongsTo('App\Entity');
+        return $this->belongsTo('Modules\NomadiCore\Entity');
     }
 
 }

@@ -3,7 +3,7 @@
 namespace Modules\NomadiCore\Editing;
 
 use Config;
-use App\Editing;
+use Modules\NomadiCore\Editing;
 
 class Presenter
 {

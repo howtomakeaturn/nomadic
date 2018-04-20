@@ -58,7 +58,7 @@ class Tag extends Model
 
     function entityTags()
     {
-        return $this->hasMany('App\EntityTag');
+        return $this->hasMany('Modules\NomadiCore\EntityTag');
     }
 
 }

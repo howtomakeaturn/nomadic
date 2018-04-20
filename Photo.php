@@ -13,12 +13,12 @@ class Photo extends Model
 
     function cafe()
     {
-        return $this->belongsTo('App\Cafe');
+        return $this->belongsTo('Modules\NomadiCore\Cafe');
     }
 
     function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function presentWithUser()

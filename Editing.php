@@ -3,7 +3,7 @@
 namespace Modules\NomadiCore;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Editing\Presenter;
+use Modules\NomadiCore\Editing\Presenter;
 
 class Editing extends Model
 {
@@ -36,12 +36,12 @@ class Editing extends Model
 
     function entity()
     {
-        return $this->belongsTo('App\Entity');
+        return $this->belongsTo('Modules\NomadiCore\Entity');
     }
 
     function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Modules\NomadiCore\User');
     }
 
     function isChanged($field)

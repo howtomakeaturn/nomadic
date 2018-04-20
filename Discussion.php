@@ -11,7 +11,7 @@ class Discussion extends Model
 
     function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('Modules\NomadiCore\Post');
     }
 
     function presentBlock()

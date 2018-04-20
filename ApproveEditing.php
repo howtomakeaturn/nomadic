@@ -7,7 +7,7 @@ class ApproveEditing
 
     function handle()
     {
-        $editing = \App\Editing::whereStatus(\App\Editing::CREATED_STATUS)
+        $editing = \Modules\NomadiCore\Editing::whereStatus(\Modules\NomadiCore\Editing::CREATED_STATUS)
             ->orderBy('created_at', 'asc')->first();
 
         if ($editing && $editing->user->profile->score >= 10) $editing->approve();

@@ -55,7 +55,7 @@ class ShopController extends BaseController
 
         $entity = Entity::find($id);
 
-        $query = new \App\Tag\Query();
+        $query = new \Modules\NomadiCore\Tag\Query();
 
         $userTags = $query->getAllByUserOnCafe(Auth::user(), $entity);
 

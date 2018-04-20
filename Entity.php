@@ -5,10 +5,10 @@ namespace Modules\NomadiCore;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Config;
-use App\Cafe\Presenter;
-use App\Cafe\Api;
-use App\Facebook\FanPage;
-use App\BusinessHour;
+use Modules\NomadiCore\Cafe\Presenter;
+use Modules\NomadiCore\Cafe\Api;
+use Modules\NomadiCore\Facebook\FanPage;
+use Modules\NomadiCore\BusinessHour;
 use Laravel\Scout\Searchable;
 
 class Entity extends Model
@@ -123,52 +123,52 @@ class Entity extends Model
 
     function fan_page()
     {
-        return $this->hasOne('App\Facebook\FanPage');
+        return $this->hasOne('Modules\NomadiCore\Facebook\FanPage');
     }
 
     function place_detail()
     {
-        return $this->hasOne('App\GooglePlaceDetail');
+        return $this->hasOne('Modules\NomadiCore\GooglePlaceDetail');
     }
 
     function recommendations()
     {
-        return $this->hasMany('App\Recommendation');
+        return $this->hasMany('Modules\NomadiCore\Recommendation');
     }
 
     function reviews()
     {
-        return $this->hasMany('App\Review');
+        return $this->hasMany('Modules\NomadiCore\Review');
     }
 
     function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Modules\NomadiCore\Comment');
     }
 
     function wishes()
     {
-        return $this->hasMany('App\Wish');
+        return $this->hasMany('Modules\NomadiCore\Wish');
     }
 
     function photos()
     {
-        return $this->hasMany('App\Photo');
+        return $this->hasMany('Modules\NomadiCore\Photo');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('Modules\NomadiCore\Tag');
     }
 
     function business_hours()
     {
-        return $this->hasMany('App\BusinessHour');
+        return $this->hasMany('Modules\NomadiCore\BusinessHour');
     }
 
     function donations()
     {
-        return $this->hasMany('App\Donation');
+        return $this->hasMany('Modules\NomadiCore\Donation');
     }
 
     function uniqueTags()
@@ -404,7 +404,7 @@ class Entity extends Model
                 $close_time = null;
             }
 
-            \App\BusinessHour::where('cafe_id', $this->id)->where('day', $businessHour->day)->update([
+            \Modules\NomadiCore\BusinessHour::where('cafe_id', $this->id)->where('day', $businessHour->day)->update([
                 'open_time' => $open_time,
                 'close_time' => $close_time
             ]);
