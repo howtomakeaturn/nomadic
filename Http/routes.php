@@ -83,6 +83,150 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
         return redirect('/');
     });
 
+    Route::get('/user/{id}', function($id){
+
+        $user = App\User::find($id);
+
+        $latArr = [];
+        $lngArr = [];
+
+        foreach($user->recommendations as $rec) {
+            if ($rec->cafe->latitude != 0) {
+                $latArr[] = $rec->cafe->latitude;
+                $lngArr[] = $rec->cafe->longitude;
+            }
+        }
+
+        if (count($latArr) > 0) {
+            $center = ['lat' => calculate_median($latArr), 'lng' => calculate_median($lngArr), 'zoom' => 13];
+        } else {
+            $center = ['lat' => 24.042571, 'lng' => 120.9472711, 'zoom' => 8];
+        }
+
+        if (Request::get('tab')) {
+            $mode = Request::get('tab');
+        } else {
+            $mode = 'summary';
+        }
+
+        return view('history', ['user' => $user, 'center' => $center, 'mode' => $mode]);
+
+    });
+
+    Route::get('/user/{id}/map', function($id){
+
+        $user = App\User::find($id);
+
+        $latArr = [];
+        $lngArr = [];
+
+        foreach($user->recommendations as $rec) {
+            if ($rec->cafe->latitude != 0) {
+                $latArr[] = $rec->cafe->latitude;
+                $lngArr[] = $rec->cafe->longitude;
+            }
+        }
+
+        if (count($latArr) > 0) {
+            $center = ['lat' => calculate_median($latArr), 'lng' => calculate_median($lngArr), 'zoom' => 13];
+        } else {
+            $center = ['lat' => 24.042571, 'lng' => 120.9472711, 'zoom' => 8];
+        }
+
+        return view('user/map', ['user' => $user, 'center' => $center]);
+
+    });
+
+    Route::get('/editing/{id}', function($id){
+
+        if ( !Auth::check() ) {
+            return redirect("login?&path=/editing/$id");
+        }
+
+        $entity = App\Entity::find($id);
+
+        return view('editing', ['entity' => $entity]);
+
+    });
+
+    Route::post('/submit-editing', function(){
+        $entity = App\Entity::find(Request::get('entity_id'));
+
+        $infoFields = Request::only(getInfoKeys());
+
+        $e = new App\Editing();
+
+        $e->name = Request::get('name');
+
+        $e->info_fields = json_encode($infoFields);
+
+        $e->entity_id = Request::get('entity_id');
+
+        $e->user_id = Auth::check() ? Auth::user()->id : 0;
+
+        $e->address = Request::get('address');
+
+        $e->save();
+
+        $e->approve();
+
+        return view('notice', ['title' => '修改成功！', 'message' => '非常謝謝您，已經更新進資料庫！']);
+    });
+
+    Route::get('/privacy-policy', function(){
+        return view('privacy-policy');
+    });
+
+    Route::get('upload-photo', function(){
+        return view('upload-photo');
+    });
+
+    Route::post('upload-photo', function(){
+        $service = new App\UploadPhoto();
+
+        $photo = $service->handle();
+
+        $photo->cafe_id = Request::get('cafe_id');
+
+        $photo->user_id = Auth::user()->id;
+
+        $photo->save();
+
+        return redirect(URL::previous());
+
+    });
+
+    Route::post('/remove-photo', function(){
+        $p = \App\Photo::where('id', Request::get('photo_id'))
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
+        $p->status = \App\Photo::HIDDEN_STATUS;
+
+        $p->save();
+
+        return redirect()->back();
+    });
+
+    Route::post('/remove-post', function(){
+        $p = \App\Post::where('id', Request::get('post_id'))
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
+        if ($p->discussion->posts->first()->id == $p->id) {
+            $discussion = $p->discussion;
+            foreach ($discussion->posts as $post) {
+                $post->delete();
+            }
+            $discussion->delete();
+            return redirect('/forum');
+        } else {
+            $p->delete();
+            return redirect()->back();
+        }
+
+    });
+
     Route::get('/', 'HomepageController@index');
 
     Route::get('/home', 'HomepageController@home');
