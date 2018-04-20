@@ -102,6 +102,23 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     Route::get('/contribute', 'CommunityController@contribute');
     Route::post('/contribute', 'CommunityController@saveContribution');
 
+    Route::post('/ajax/wish', 'SocialController@ajaxWish');
+    Route::post('/ajax/cancel-wish', 'SocialController@ajaxCancelWish');
+
+    Route::post('/ajax/visit', 'SocialController@ajaxVisit');
+    Route::post('/ajax/cancel-visit', 'SocialController@ajaxCancelVisit');
+
+    Route::post('/ajax/comment', 'SocialController@ajaxComment');
+    Route::post('/add-comment', 'SocialController@addComment');
+    Route::post('/remove-comment', 'SocialController@removeComment');
+
+    Route::post('/submit-review', 'SocialController@submitReview');
+    Route::post('/update-review', 'SocialController@updateReview');
+    Route::post('/delete-review', 'SocialController@deleteReview');
+
+    Route::get('/reviewers/{id}', 'SocialController@reviewers');
+    Route::get('/review/{id}', 'SocialController@review');
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 
