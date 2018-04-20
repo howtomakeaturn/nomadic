@@ -20,6 +20,9 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     Route::post('/update-post', 'PostController@updatePost');
     Route::post('/comment-to-post', 'PostController@commentToPost');
 
+    Route::get('/contribute', 'CommunityController@contribute');
+    Route::post('/contribute', 'CommunityController@saveContribution');
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 
