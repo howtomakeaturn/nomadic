@@ -279,6 +279,45 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
     Route::get('/shop/{id}/json', 'ShopController@json');
 
+    Route::get("/{city}/tag/{tagStr}", 'CityController@tag');
+
+    Route::get('/ajax/modal/{id}', function($id){
+        $entity = App\Entity::find($id);
+
+        $fields = App\City::getFields($entity->city);
+
+        Layout::setCity($entity->city);
+
+        App\SystemEvent::track('view-shop', [
+            'id' => $entity->id,
+            'mode' => Request::get('mode')
+        ]);
+
+        return view('_cafe-modal', ['entity' => $entity, 'fields' => $fields]);
+    });
+
+    Route::get('/community', function(){
+        $page = Request::get('page') ? : 1;
+
+        $users = App\User::all();
+
+        $users = $users->filter(function($user){
+            return $user->profile->score > 0;
+        });
+
+        $users = $users->sortByDesc(function($user){
+            return $user->profile->score;
+        });
+
+        $numOfPage = 40;
+
+        $totalPage = ceil($users->count()/40);
+
+        $users = $users->forPage($page, $numOfPage);
+
+        return view('community', compact('users', 'totalPage', 'page'));
+    });
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 
