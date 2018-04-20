@@ -263,6 +263,22 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
     Route::get('/reviewers/{id}', 'SocialController@reviewers');
     Route::get('/review/{id}', 'SocialController@review');
 
+    Route::get('/shop/search', 'ShopController@search');
+    Route::post('/shop/new-tag', 'ShopController@newTag');
+    Route::post('/shop/apply-tag', 'ShopController@applyTag');
+    Route::post('/shop/unapply-tag', 'ShopController@unapplyTag');
+    Route::post('/shop/report-tag', 'ShopController@reportTag');
+    Route::post('/shop/unreport-tag', 'ShopController@unreportTag');
+
+    Route::get('/shop/{id}/report', 'ShopController@report');
+    Route::get('/shop/{id}/donate', 'ShopController@donate');
+
+    Route::get('/shop/{id}/tag', 'ShopController@tag');
+
+    Route::get('/shop/{id}/stats', 'ShopController@stats');
+
+    Route::get('/shop/{id}/json', 'ShopController@json');
+
     foreach (Config::get('city') as $key => $value) {
         Route::get('/{' . $key . '}', 'CityController@getHomepage');
 
