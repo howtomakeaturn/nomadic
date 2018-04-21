@@ -58,7 +58,7 @@
                 <span class='grey' style='font-size: 12px;'>{{trans('util.text.n-reviews_')}} <a href='/reviewers/{{$entity->id}}' target='_blank'>{{$entity->validReviews()->count()}} {{trans('util.text._n-reviews')}}</a></span>
                 @endif
 
-                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $entity->id }}'><i class='fa fa-star'></i>&nbsp;{{Config::get('nomadic.info-modal.write-a-review')}}</a>
+                <a class="btn btn-info btn-sm" target="_blank" href='/review/{{ $entity->id }}'><i class='fa fa-pencil-square-o'></i>&nbsp;{{Config::get('nomadic.info-modal.write-a-review')}}</a>
             </div>
         </div>
         <hr />
@@ -83,7 +83,7 @@
         <br>
           <div class='row'>
               <div class='col-xs-12'>
-                  <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $entity->id }}'><i class='fa fa-pencil-square-o'></i>&nbsp;{{trans('util.action.update-info')}}</a>
+                  <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $entity->id }}'><i class='fa fa-pencil'></i>&nbsp;{{trans('util.action.update-info')}}</a>
               </div>
           </div>
 
