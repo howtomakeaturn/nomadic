@@ -82,7 +82,7 @@ class HomepageController extends BaseController
 
         $messages = $messages->reverse();
 
-        return view('index/index-user', ['feeds' => $this->generateFeeds(), 'discussions' => $discussions, 'messages' => $messages]);
+        return view('nomadicore::index/index-user', ['feeds' => $this->generateFeeds(), 'discussions' => $discussions, 'messages' => $messages]);
     }
 
     function index(Request $request)
@@ -126,11 +126,11 @@ class HomepageController extends BaseController
 
         if (is_null($request->input('beta')))
         {
-            return view('index/new-index', compact('boxCafes', 'mapCafes', 'center', 'fbFeeds'));
+            return view('nomadicore::index/new-index', compact('boxCafes', 'mapCafes', 'center', 'fbFeeds'));
         }
         else
         {
-            return view('home.index', compact('boxCafes', 'mapCafes', 'center', 'fbFeeds'));
+            return view('nomadicore::home.index', compact('boxCafes', 'mapCafes', 'center', 'fbFeeds'));
         }
     }
 

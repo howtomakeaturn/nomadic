@@ -109,7 +109,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
             $mode = 'summary';
         }
 
-        return view('history', ['user' => $user, 'center' => $center, 'mode' => $mode]);
+        return view('nomadicore::history', ['user' => $user, 'center' => $center, 'mode' => $mode]);
 
     });
 
@@ -133,7 +133,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
             $center = ['lat' => 24.042571, 'lng' => 120.9472711, 'zoom' => 8];
         }
 
-        return view('user/map', ['user' => $user, 'center' => $center]);
+        return view('nomadicore::user/map', ['user' => $user, 'center' => $center]);
 
     });
 
@@ -145,7 +145,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $entity = Modules\NomadiCore\Entity::find($id);
 
-        return view('editing', ['entity' => $entity]);
+        return view('nomadicore::editing', ['entity' => $entity]);
 
     });
 
@@ -170,15 +170,15 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $e->approve();
 
-        return view('notice', ['title' => '修改成功！', 'message' => '非常謝謝您，已經更新進資料庫！']);
+        return view('nomadicore::notice', ['title' => '修改成功！', 'message' => '非常謝謝您，已經更新進資料庫！']);
     });
 
     Route::get('/privacy-policy', function(){
-        return view('privacy-policy');
+        return view('nomadicore::privacy-policy');
     });
 
     Route::get('upload-photo', function(){
-        return view('upload-photo');
+        return view('nomadicore::upload-photo');
     });
 
     Route::post('upload-photo', function(){
@@ -293,7 +293,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
             'mode' => Request::get('mode')
         ]);
 
-        return view('_cafe-modal', ['entity' => $entity, 'fields' => $fields]);
+        return view('nomadicore::_cafe-modal', ['entity' => $entity, 'fields' => $fields]);
     });
 
     Route::get('/community', function(){
@@ -315,7 +315,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $users = $users->forPage($page, $numOfPage);
 
-        return view('community', compact('users', 'totalPage', 'page'));
+        return view('nomadicore::community', compact('users', 'totalPage', 'page'));
     });
 
     foreach (Config::get('city') as $key => $value) {

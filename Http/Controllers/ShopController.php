@@ -44,7 +44,7 @@ class ShopController extends BaseController
             return redirect("/shop/search?query=$keyword");
         }
 
-        return view('shop.search', compact('keyword', 'cafes'));
+        return view('nomadicore::shop.search', compact('keyword', 'cafes'));
     }
 
     function tag($id)
@@ -63,7 +63,7 @@ class ShopController extends BaseController
 
         $otherTags = $query->getAllByNotUserNotOnCafe(Auth::user(), $entity);
 
-        return view('shop/tag', compact('entity', 'userTags', 'userOtherTags', 'otherTags'));
+        return view('nomadicore::shop/tag', compact('entity', 'userTags', 'userOtherTags', 'otherTags'));
     }
 
     function json($id)
@@ -150,7 +150,7 @@ class ShopController extends BaseController
     {
         $cafe = Cafe::find($id);
 
-        return view('shop/report', compact('cafe'));
+        return view('nomadicore::shop/report', compact('cafe'));
     }
 
     function stats($id)
@@ -243,14 +243,14 @@ class ShopController extends BaseController
             ksort($displayData2);
         }
 
-        return view('shop/stats', compact('cafe', 'data', 'displayData', 'displayData2'));
+        return view('nomadicore::shop/stats', compact('cafe', 'data', 'displayData', 'displayData2'));
     }
 
     function donate($id)
     {
         $cafe = Cafe::find($id);
 
-        return view('shop/donate', compact('cafe'));
+        return view('nomadicore::shop/donate', compact('cafe'));
     }
 
 }

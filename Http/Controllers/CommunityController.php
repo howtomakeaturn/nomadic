@@ -15,7 +15,7 @@ class CommunityController extends BaseController
             return redirect('login?&path=/contribute');
         }
 
-        return view('community.contribute');
+        return view('nomadicore::community.contribute');
     }
 
     public function saveContribution(Request $request)
@@ -49,6 +49,6 @@ class CommunityController extends BaseController
 
         $entity->save();
 
-        return view('notice', ['title' => '新增成功！', 'message' => '非常謝謝您，已經新增進資料庫！']);
+        return view('nomadicore::notice', ['title' => '新增成功！', 'message' => '非常謝謝您，已經新增進資料庫！']);
     }
 }

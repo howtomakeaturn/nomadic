@@ -28,7 +28,7 @@ class PostController extends BaseController
 
         $discussions = \CafeNomad::getDiscussions();
 
-        return view('posts/index', compact('discussions'));
+        return view('nomadicore::posts/index', compact('discussions'));
     }
 
     function post($id)
@@ -39,19 +39,19 @@ class PostController extends BaseController
 
         Layout::setOpenGraphImage(url('/android-chrome-384x384.png'));
 
-        return view('posts/post', compact('discussion'));
+        return view('nomadicore::posts/post', compact('discussion'));
     }
 
     function edit($id)
     {
         $post = Post::whereId($id)->whereUserId(Auth::user()->id)->first();
 
-        return view('posts/edit', compact('post'));
+        return view('nomadicore::posts/edit', compact('post'));
     }
 
     function create()
     {
-        return view('posts/create');
+        return view('nomadicore::posts/create');
     }
 
     function createPost()

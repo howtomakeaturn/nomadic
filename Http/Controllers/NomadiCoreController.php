@@ -14,7 +14,7 @@ class NomadiCoreController extends Controller
      */
     public function index()
     {
-        return view('nomadicore::index');
+        return view('nomadicore::nomadicore::index');
     }
 
     /**
@@ -23,7 +23,7 @@ class NomadiCoreController extends Controller
      */
     public function create()
     {
-        return view('nomadicore::create');
+        return view('nomadicore::nomadicore::create');
     }
 
     /**
@@ -41,7 +41,7 @@ class NomadiCoreController extends Controller
      */
     public function show()
     {
-        return view('nomadicore::show');
+        return view('nomadicore::nomadicore::show');
     }
 
     /**
@@ -50,7 +50,7 @@ class NomadiCoreController extends Controller
      */
     public function edit()
     {
-        return view('nomadicore::edit');
+        return view('nomadicore::nomadicore::edit');
     }
 
     /**

@@ -16,12 +16,12 @@ class Discussion extends Model
 
     function presentBlock()
     {
-        return view('partial/_post-item', ['discussion' => $this]);
+        return view('nomadicore::partial/_post-item', ['discussion' => $this]);
     }
 
     function presentBlockSimple()
     {
-        return view('partial/_post-item-simple', ['discussion' => $this]);
+        return view('nomadicore::partial/_post-item-simple', ['discussion' => $this]);
     }
 
 }

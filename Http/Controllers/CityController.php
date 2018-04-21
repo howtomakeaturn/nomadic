@@ -63,7 +63,7 @@ class CityController extends BaseController
             ->where('longitude', '!=', '0')
             ->get();
 
-        return view('map', ['cafes' => $cafes, 'fields' => $fields,
+        return view('nomadicore::map', ['cafes' => $cafes, 'fields' => $fields,
             'center' => City::getMapCenter($city)]);
     }
 
@@ -100,7 +100,7 @@ class CityController extends BaseController
             ->where('longitude', '!=', '0')
             ->get();
 
-        return view('map', ['cafes' => $cafes, 'fields' => $fields, 'targetCafe' => $targetEntity,
+        return view('nomadicore::map', ['cafes' => $cafes, 'fields' => $fields, 'targetCafe' => $targetEntity,
             'center' => City::getMapCenter($city)]);
     }
 
@@ -123,7 +123,7 @@ class CityController extends BaseController
             return true;
         });
 
-        return view('discovery', compact('cafes'));
+        return view('nomadicore::discovery', compact('cafes'));
     }
 
     function getHomepage($city)
@@ -142,7 +142,7 @@ class CityController extends BaseController
 
         $photos = City::getLatestPhotos($city, $displayNumber);
 
-        return view('city-homepage', compact('city', 'comments', 'reviews', 'photos'));
+        return view('nomadicore::city-homepage', compact('city', 'comments', 'reviews', 'photos'));
     }
 
     function getFlaneur($city)
@@ -157,7 +157,7 @@ class CityController extends BaseController
 
         $feeds = $this->flaneurPagination($city, 1);
 
-        return view('flaneur', compact('feeds', 'city'));
+        return view('nomadicore::flaneur', compact('feeds', 'city'));
     }
 
     function getFlaneurAjax()
@@ -165,7 +165,7 @@ class CityController extends BaseController
         $feeds = $this->flaneurPagination(Request::get('city'), Request::get('page'));
 
         foreach ($feeds as $feed) {
-            echo view('flaneur/_fb-posts', compact('feed'));
+            echo view('nomadicore::flaneur/_fb-posts', compact('feed'));
         }
     }
 
@@ -234,7 +234,7 @@ class CityController extends BaseController
 
         Layout::setOpenGraphTitle( config('nomadic.global.app'). ' - ' . Config::get('city')[$city]['zh'] . $tag->name . '的' . config('nomadic.global.subject') . '清單：共收錄' . $cafes->count() . '間網友推薦的店');
 
-        return view('tag', compact('cafes', 'city', 'tag', 'center'));
+        return view('nomadicore::tag', compact('cafes', 'city', 'tag', 'center'));
     }
 
 }

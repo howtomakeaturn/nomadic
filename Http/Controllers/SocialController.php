@@ -109,10 +109,10 @@ class SocialController extends BaseController
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('edit-review', ['entity' => $entity, 'review' => $review]);
+            return view('nomadicore::edit-review', ['entity' => $entity, 'review' => $review]);
         }
 
-        return view('review', ['entity' => $entity]);
+        return view('nomadicore::review', ['entity' => $entity]);
     }
 
     function submitReview(){
@@ -122,14 +122,14 @@ class SocialController extends BaseController
             ->where('user_id', Auth::user()->id)->first();
 
         if ($review) {
-            return view('notice', ['title' => '您已經替' . $entity->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
+            return view('nomadicore::notice', ['title' => '您已經替' . $entity->name . '評分過了。', 'message' => '您只能對一間咖啡廳評分一次。']);
         }
 
         $r = new Review();
 
         $error = $this->checkHasError($r);
 
-        if ($error) return view('notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
+        if ($error) return view('nomadicore::notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
 
         $r->entity_id = Request::get('entity_id');
 
@@ -139,7 +139,7 @@ class SocialController extends BaseController
 
         //$r->checkin();
 
-        return view('message');
+        return view('nomadicore::message');
     }
 
     function updateReview(){
@@ -150,11 +150,11 @@ class SocialController extends BaseController
 
         $error = $this->checkHasError($r);
 
-        if ($error) return view('notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
+        if ($error) return view('nomadicore::notice', ['title' => '您有一項評分打了0分。', 'message' => '滿分5分，請輸入1到5。']);
 
         $r->save();
 
-        return view('message');
+        return view('nomadicore::message');
     }
 
     function checkHasError($r)
@@ -184,7 +184,7 @@ class SocialController extends BaseController
     {
         $cafe = Cafe::find($id);
 
-        return view('reviewers', ['cafe' => $cafe]);
+        return view('nomadicore::reviewers', ['cafe' => $cafe]);
     }
 
     function deleteReview(){
@@ -195,7 +195,7 @@ class SocialController extends BaseController
 
         $r->delete();
 
-        return view('notice', ['title' => '刪除完成。', 'message' => '']);
+        return view('nomadicore::notice', ['title' => '刪除完成。', 'message' => '']);
     }
 
     function addComment()
