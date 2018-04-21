@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-{{$entity->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-uuid="{{ $entity->id }}" data-keyboard="false">
+<div class="modal cafe-modal" id="modal-{{$entity->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-uuid="{{ $entity->id }}" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
