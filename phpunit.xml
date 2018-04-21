@@ -9,6 +9,11 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+        <testsuite name="NomadiCore Module">
+            <directory suffix="Test.php">./Modules/NomadiCore/Tests/</directory>
+        </testsuite>
+    </testsuites>
+    <testsuites>
         <testsuite name="Application Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
