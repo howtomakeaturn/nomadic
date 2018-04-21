@@ -7,7 +7,7 @@ return [
         'unit' => '間',
         'name_of_unit' => '店名',
         'category' => '城市',
-        'unit-url' => 'shop'
+        'unit-url' => 'entity'
     ],
     'homepage' => [
         'title' => 'Nomadic',
@@ -43,5 +43,6 @@ return [
         'check-in' => '我去過這間',
         'num-of-visit' => '人去過這間店。',
         'write-a-review' => '我要給這間店評分',
-    ]
+    ],
+    'map-enabled' => false,
 ];

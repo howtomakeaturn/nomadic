@@ -185,6 +185,7 @@ return [
         App\Providers\CafeNomadServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
     ],
 
     /*
@@ -240,6 +241,7 @@ return [
         'CafeNomad' => App\Facades\CafeNomad::class,
         'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
+        'Module' => Nwidart\Modules\Facades\Module::class,
     ],
 
 ];
