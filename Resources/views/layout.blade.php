@@ -18,7 +18,7 @@
 
         <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="/css/style.css?v=12">
+        <link rel="stylesheet" href="/modules/nomadicore/css/style.css?v=12">
 
         <script src="/js/list.min.js"></script>
 

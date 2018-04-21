@@ -15,7 +15,7 @@
 
         <script src='/js/bootstrap.min.js'></script>
 
-        <link rel="stylesheet" href="/css/style.css?v=4">
+        <link rel="stylesheet" href="/modules/nomadicore/css/style.css?v=4">
 
         @yield('head')
 

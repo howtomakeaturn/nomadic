@@ -1,7 +1,7 @@
 @extends('nomadicore::layout')
 
 @section('head')
-<link rel="stylesheet" href="/css/star-rating.css">
+<link rel="stylesheet" href="/modules/nomadicore/css/star-rating.css">
 @endsection
 
 @section('content')
