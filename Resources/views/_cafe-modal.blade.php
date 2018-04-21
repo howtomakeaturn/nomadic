@@ -20,8 +20,6 @@
                   @foreach($entity->uniqueTags()->sortByDesc(function($tag)use($entity){return $tag->countOnCafe($entity);}) as $tag)
                   <a class='cafe-tag' href='/{{$entity->city}}/tag/{{$tag->id}}'>
                     {{$tag->name}}
-
-                  <span style='font-size: 12px; vertical-align: super;'>{{$tag->countOnCafe($entity)}}</span>
                   </a>
                   @endforeach
                   <a href='/shop/{{$entity->id}}/tag' class='btn btn-info btn-sm' target="_blank">
