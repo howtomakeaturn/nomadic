@@ -19,9 +19,9 @@ class CityController extends BaseController
     private function getView($city)
     {
         if (Layout::isMobile()) {
-            return 'list-mobile';
+            return 'nomadicore::list-mobile';
         } else {
-            return 'list-desktop';
+            return 'nomadicore::list-desktop';
         }
     }
 
