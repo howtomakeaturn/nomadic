@@ -29,7 +29,7 @@
 
             <form method='post' action='/update-review'>
 
-                @include('_star-rating-form-content', ['review' => $review])
+                @include('nomadicore::_star-rating-form-content', ['review' => $review])
 
                 <input type="hidden" name="review_id" value="{{ $review->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

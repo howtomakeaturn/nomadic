@@ -29,8 +29,8 @@
                     </div>
 
                     @if(!$tag->isUsed(Auth::user(), $entity))
-                        @include('shop/tag/_report-tag')
-                        @include('shop/tag/_apply-tag')
+                        @include('nomadicore::shop/tag/_report-tag')
+                        @include('nomadicore::shop/tag/_apply-tag')
                     @else
                         @if($tag->isApplied(Auth::user(), $entity))
                             <form style='display: inline;' method="post" action=/shop/unapply-tag>
@@ -42,7 +42,7 @@
                                 </button>
                             </form>
                         @elseif($tag->isReported(Auth::user(), $entity))
-                            @include('shop/tag/_unreport-tag')
+                            @include('nomadicore::shop/tag/_unreport-tag')
                         @endif
                     @endif
 

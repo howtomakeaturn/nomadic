@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('head')
-    @include('partial/business-hours-form-head', ['inputName' => 'business-hours'])
+    @include('nomadicore::partial/business-hours-form-head', ['inputName' => 'business-hours'])
 @endsection
 
 @section('content')

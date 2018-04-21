@@ -30,7 +30,7 @@
             <div class='col-md-6'>
                 <div class='shop-posts'>
                     @foreach($feeds->take(25) as $feed)
-                        @include('flaneur/_fb-posts')
+                        @include('nomadicore::flaneur/_fb-posts')
                     @endforeach
                 </div>
                 <div id='load-more'>
@@ -40,10 +40,10 @@
 
             <div class='col-md-3'>
                 <?php /*
-                @include('index/_new-cafe-promotion-side')
+                @include('nomadicore::index/_new-cafe-promotion-side')
                 */ ?>
                 @if(!Layout::isMobile())
-                @include('index/_shop-info')
+                @include('nomadicore::index/_shop-info')
                 @endif
             </div>
         </div>
@@ -51,7 +51,7 @@
 
     <br>
 
-    @include('partial/_footer')
+    @include('nomadicore::partial/_footer')
 
     <script>
         function parseTimestamp()
@@ -141,6 +141,6 @@
         }
     </style>
 
-    @include('_open-modal')
+    @include('nomadicore::_open-modal')
 
 @endsection

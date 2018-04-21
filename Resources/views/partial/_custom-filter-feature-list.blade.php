@@ -1,4 +1,4 @@
-@include('partial/_custom-filter-modal')
+@include('nomadicore::partial/_custom-filter-modal')
 
 <script>
     $(document).ready(function(){

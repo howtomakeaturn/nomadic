@@ -4,13 +4,13 @@
 
 <div class='container'>
 
-@include('_desktop-core')
+@include('nomadicore::_desktop-core')
 </div>
 
 <br>
 <br>
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 <style>
     .note {

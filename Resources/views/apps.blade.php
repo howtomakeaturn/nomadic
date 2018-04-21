@@ -26,7 +26,7 @@
     <div class='row'>
         @foreach($apps as $index => $app)
         <div class='col-md-3'>
-            @include('_app-card')
+            @include('nomadicore::_app-card')
         </div>
         @endforeach
     </div>

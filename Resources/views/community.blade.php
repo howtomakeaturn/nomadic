@@ -89,7 +89,7 @@
     </div>
 </div>
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 <style>
     .user-a:hover {

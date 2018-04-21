@@ -16,7 +16,7 @@
 @section('content')
 
 <div class='container'>
-    @include('_mobile-core')
+    @include('nomadicore::_mobile-core')
 </div>
 
 <br>
@@ -30,6 +30,6 @@
     });
 </script>
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 @endsection

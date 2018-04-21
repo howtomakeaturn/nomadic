@@ -65,7 +65,7 @@
         <div class='row small-padding'>
             <div class='col-md-3'>
 
-                @include('index/_personal-profile-side')
+                @include('nomadicore::index/_personal-profile-side')
 
             </div>
 
@@ -100,17 +100,17 @@
 
                 <div style='height: 15px;'>&nbsp;</div>
 
-                @include('index/_feeds')
+                @include('nomadicore::index/_feeds')
 
             </div>
 
             <div class='col-md-3'>
 
-                @include('index/_donated-cafe-promotion-side')
+                @include('nomadicore::index/_donated-cafe-promotion-side')
 
                 <br>
 
-                @include('index/_new-cafe-promotion-side')
+                @include('nomadicore::index/_new-cafe-promotion-side')
 
             </div>
         </div>
@@ -118,6 +118,6 @@
 
     <br>
 
-    @include('partial/_footer')
+    @include('nomadicore::partial/_footer')
 
 @endsection

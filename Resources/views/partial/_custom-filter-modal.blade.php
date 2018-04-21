@@ -29,43 +29,43 @@
               <div class="col-xs-6">
                   {{trans('util.fields.wifi')}}
                   <select name='wifi-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
                   <br>
                   <br>
                   {{trans('util.fields.seat')}}
                   <select name='seat-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
                   <br>
                   <br>
                   {{trans('util.fields.quiet')}}
                   <select name='quiet-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
                   <br>
                   <br>
                   {{trans('util.fields.tasty')}}
                   <select name='tasty-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
               </div>
               <div class="col-xs-6">
                   {{trans('util.fields.food')}}
                   <select name='food-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
                   <br>
                   <br>
                   {{trans('util.fields.cheap')}}
                   <select name="cheap-filter">
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
                   <br>
                   <br>
                   {{trans('util.fields.music')}}
                   <select name='music-filter'>
-                      @include('partial/_attr-filter-options')
+                      @include('nomadicore::partial/_attr-filter-options')
                   </select>
 
               </div>

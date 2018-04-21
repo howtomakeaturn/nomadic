@@ -19,7 +19,7 @@
         <div class='col-md-6'>
             <form method='post' action='/submit-review'>
 
-                @include('_star-rating-form-content')
+                @include('nomadicore::_star-rating-form-content')
 
                 <input type="hidden" name="entity_id" value="{{ $entity->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -4,7 +4,7 @@
     <div class='row no-padding'>
         @foreach(Modules\NomadiCore\City::getOnlineCities()->take(Layout::isMobile() ? 3 : 4) as $city)
         <div class='col-md-3' style='padding-left: 5px; padding-right: 5px;'>
-            @include('index/_city-box')
+            @include('nomadicore::index/_city-box')
         </div>
         @endforeach
     </div>
@@ -15,7 +15,7 @@
     <div class='row no-padding -hide'>
         @foreach(Modules\NomadiCore\City::getOnlineCities()->slice(Layout::isMobile() ? 3 : 4) as $city)
         <div class='col-md-3' style='padding-left: 5px; padding-right: 5px;'>
-            @include('index/_city-box')
+            @include('nomadicore::index/_city-box')
         </div>
         @endforeach
     </div>

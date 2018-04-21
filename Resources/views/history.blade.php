@@ -99,43 +99,43 @@
                 <a class='title' href='/user/{{$user->id}}?tab=cafes'>推薦新增 {{ $user->cafes->count() }} 間店家</a>
                 <br>
                 @foreach($user->cafes->sortByDesc('created_at') as $cafe)
-                    @include('user/summary/cafe-entry')
+                    @include('nomadicore::user/summary/cafe-entry')
                 @endforeach
             @elseif ($mode === 'reviews')
                 <a class='title' href='/user/{{$user->id}}?tab=reviews'>對 {{ $user->reviews->count() }} 間咖啡廳評分</a>
                 <br>
                 @foreach($user->reviews->sortByDesc('created_at') as $review)
-                    @include('user/summary/review-entry')
+                    @include('nomadicore::user/summary/review-entry')
                 @endforeach
             @elseif ($mode === 'editings')
                 <a class='title' href='/user/{{$user->id}}?tab=editings'>編修 {{ $user->editings->count() }} 間店家資料</a>
                 <br>
                 @foreach($user->editings->sortByDesc('created_at') as $editing)
-                    @include('user/summary/editing-entry')
+                    @include('nomadicore::user/summary/editing-entry')
                 @endforeach
             @elseif ($mode === 'comments')
                 <a class='title' href='/user/{{$user->id}}?tab=comments'>有 {{ $user->comments->count() }} 則留言</a>
                 <br>
                 @foreach($user->comments->sortByDesc('created_at') as $comment)
-                    @include('user/summary/comment-entry')
+                    @include('nomadicore::user/summary/comment-entry')
                 @endforeach
             @elseif ($mode === 'photos')
                 <a class='title' href='/user/{{$user->id}}?tab=photos'>上傳 {{ $user->validPhotos()->count() }} 張相片</a>
                 <br>
                 @foreach($user->validPhotos()->sortByDesc('created_at') as $photo)
-                    @include('user/summary/photo-entry')
+                    @include('nomadicore::user/summary/photo-entry')
                 @endforeach
             @elseif ($mode === 'visits')
                 <a class='title' href='/user/{{$user->id}}?tab=visits'>造訪過 {{ $user->recommendations->count() }} 間咖啡廳</a>
                 <br>
                 @foreach($user->recommendations->sortByDesc('created_at') as $rec)
-                    @include('user/summary/visit-entry')
+                    @include('nomadicore::user/summary/visit-entry')
                 @endforeach
             @elseif ($mode === 'tags')
                 <a class='title' href='/user/{{$user->id}}?tab=tags'>加上 {{ $user->cafeTags->count() }} 個標籤</a>
                 <br>
                 @foreach($user->cafeTags->sortByDesc('created_at') as $cafeTag)
-                    @include('user/summary/tag-entry')
+                    @include('nomadicore::user/summary/tag-entry')
                 @endforeach
             @endif
         </div>
@@ -150,7 +150,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=cafes'>推薦新增 {{ $user->cafes->count() }} 間店家</a>
             <br>
             @foreach($user->cafes->sortByDesc('created_at')->take(5) as $cafe)
-                @include('user/summary/cafe-entry')
+                @include('nomadicore::user/summary/cafe-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=cafes'>... 顯示全部</a>
         </div>
@@ -158,7 +158,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=reviews'>對 {{ $user->reviews->count() }} 間咖啡廳評分</a>
             <br>
             @foreach($user->reviews->sortByDesc('created_at')->take(3) as $review)
-                @include('user/summary/review-entry')
+                @include('nomadicore::user/summary/review-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=reviews'>... 顯示全部</a>
         </div>
@@ -168,7 +168,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=editings'>編修 {{ $user->editings->count() }} 間店家資料</a>
             <br>
             @foreach($user->editings->sortByDesc('created_at')->take(5) as $editing)
-                @include('user/summary/editing-entry')
+                @include('nomadicore::user/summary/editing-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=editings'>... 顯示全部</a>
         </div>
@@ -176,7 +176,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=comments'>有 {{ $user->comments->count() }} 則留言</a>
             <br>
             @foreach($user->comments->sortByDesc('created_at')->take(3) as $comment)
-                @include('user/summary/comment-entry')
+                @include('nomadicore::user/summary/comment-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=comments'>... 顯示全部</a>
         </div>
@@ -187,7 +187,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=photos'>上傳 {{ $user->validPhotos()->count() }} 張相片</a>
             <br>
             @foreach($user->validPhotos()->sortByDesc('created_at')->take(5) as $photo)
-                @include('user/summary/photo-entry')
+                @include('nomadicore::user/summary/photo-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=photos'>... 顯示全部</a>
         </div>
@@ -196,7 +196,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=visits'>造訪過 {{ $user->recommendations->count() }} 間咖啡廳</a>
             <br>
             @foreach($user->recommendations->sortByDesc('created_at')->take(5) as $rec)
-                @include('user/summary/visit-entry')
+                @include('nomadicore::user/summary/visit-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=visits'>... 顯示全部</a>
         </div>
@@ -204,7 +204,7 @@
             <a class='title' href='/user/{{$user->id}}?tab=tags'>加上 {{ $user->cafeTags->count() }} 個標籤</a>
             <br>
             @foreach($user->cafeTags->sortByDesc('created_at')->take(5) as $cafeTag)
-                @include('user/summary/tag-entry')
+                @include('nomadicore::user/summary/tag-entry')
             @endforeach
             <a href='/user/{{$user->id}}?tab=tags'>... 顯示全部</a>
         </div>
@@ -213,6 +213,6 @@
 </div>
 @endif
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 @endsection

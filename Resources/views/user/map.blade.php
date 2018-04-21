@@ -96,6 +96,6 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd_FdsWuxc57ZS7UN5UDbCoNixvZ1UFpc&callback=initMap">
 </script>
 
-@include('_open-modal')
+@include('nomadicore::_open-modal')
 
 @endsection

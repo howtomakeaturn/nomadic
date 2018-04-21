@@ -57,7 +57,7 @@
     </div>
 </div>
 
-@include('_mobile-smart-table-head')
+@include('nomadicore::_mobile-smart-table-head')
 
 <script type="text/javascript">
     var options = {
@@ -74,4 +74,4 @@
     })
 </script>
 
-@include('_open-modal')
+@include('nomadicore::_open-modal')

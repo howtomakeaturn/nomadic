@@ -10,7 +10,7 @@
 <div style="color: #616161; margin-bottom: 10px; margin-left: 15px;">社群動態</div>
 
 <div class='feed-block'>
-    @include('index/_feeds-content')
+    @include('nomadicore::index/_feeds-content')
 </div>
 
 <div id='load-more'>

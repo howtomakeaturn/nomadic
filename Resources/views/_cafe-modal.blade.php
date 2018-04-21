@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel" style='margin-bottom: 10px;'>
             <span class='cafe-name'>{{$entity->name}}@if($entity->status == Modules\NomadiCore\Entity::CLOSED_STATUS)（已歇業）@endif</span>
         </h4>
-        @include('cafe-modal/_like-box')
+        @include('nomadicore::cafe-modal/_like-box')
       </div>
       <div class="modal-body">
 
@@ -92,7 +92,7 @@
           <hr>
           <div class='row'>
               <div class='col-xs-12'>
-                  @include('cafe-modal/_comment-box')
+                  @include('nomadicore::cafe-modal/_comment-box')
               </div>
           </div>
 

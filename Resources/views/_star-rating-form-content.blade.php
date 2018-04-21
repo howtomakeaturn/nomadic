@@ -4,7 +4,7 @@
         <div class='rating-label'>
         {{$field['label']}}
         </div>
-        @include('_star-rating', ['field' => $field['key']])
+        @include('nomadicore::_star-rating', ['field' => $field['key']])
     </div>
     @endforeach
 </div>

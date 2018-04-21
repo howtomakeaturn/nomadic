@@ -150,8 +150,8 @@
     }
 </style>
 
-@include('_open-modal')
+@include('nomadicore::_open-modal')
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 @endsection

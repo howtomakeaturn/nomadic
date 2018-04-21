@@ -543,10 +543,10 @@
         });
     </script>
 
-    @include('_open-modal')
+    @include('nomadicore::_open-modal')
 
-    @include('partial/_custom-filter-feature-map')
+    @include('nomadicore::partial/_custom-filter-feature-map')
 
-    @include('partial/_guide-filter-modal')
+    @include('nomadicore::partial/_guide-filter-modal')
 
 @endsection

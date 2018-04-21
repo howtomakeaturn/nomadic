@@ -1,6 +1,6 @@
 @extends('layout')
 @section('head')
-    @include('partial/business-hours-form-head', ['inputName' => 'business_hours'])
+    @include('nomadicore::partial/business-hours-form-head', ['inputName' => 'business_hours'])
 @endsection
 @section('content')
 <div class='container'>
@@ -46,7 +46,7 @@
 <br>
 <br>
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 <style>
     input[type='text'] {

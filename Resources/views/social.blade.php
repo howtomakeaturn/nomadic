@@ -19,17 +19,17 @@
         <div class='row'>
             <div class='col-md-3'>
                 @if(Auth::check())
-                    @include('index/_personal-profile-side')
+                    @include('nomadicore::index/_personal-profile-side')
                 @endif
             </div>
             <div class='col-md-6'>
 
-                @include('index/_feeds')
+                @include('nomadicore::index/_feeds')
 
             </div>
 
             <div class='col-md-3'>
-                @include('index/_new-cafe-promotion-side')
+                @include('nomadicore::index/_new-cafe-promotion-side')
             </div>
         </div>
     </div>

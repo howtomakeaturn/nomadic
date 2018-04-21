@@ -416,7 +416,7 @@
           </div>
         </div>
 
-        @include('partial/_photo-swipe')
+        @include('nomadicore::partial/_photo-swipe')
 
     </body>
 </html>

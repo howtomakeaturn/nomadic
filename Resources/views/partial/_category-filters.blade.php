@@ -122,6 +122,6 @@
 
 </style>
 
-@include('partial/_custom-filter-feature-list')
+@include('nomadicore::partial/_custom-filter-feature-list')
 
-@include('partial/_guide-filter-modal')
+@include('nomadicore::partial/_guide-filter-modal')

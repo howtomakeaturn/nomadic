@@ -157,17 +157,17 @@
         @endif
     </div>
 
-    @include('city-homepage/_comment-section')
+    @include('nomadicore::city-homepage/_comment-section')
 
     <br>
     <br>
 
-    @include('city-homepage/_review-section')
+    @include('nomadicore::city-homepage/_review-section')
 
     <br>
     <br>
 
-    @include('partial/_footer')
+    @include('nomadicore::partial/_footer')
 
     <script>
         function parseTimestamp()
@@ -199,6 +199,6 @@
 
     </script>
 
-    @include('_open-modal')
+    @include('nomadicore::_open-modal')
 
 @endsection

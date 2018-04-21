@@ -81,6 +81,6 @@
     }
 </style>
 
-@include('partial/_footer')
+@include('nomadicore::partial/_footer')
 
 @endsection
