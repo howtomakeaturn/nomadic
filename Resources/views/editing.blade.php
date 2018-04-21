@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('nomadicore::layout')
 @section('head')
     @include('nomadicore::partial/business-hours-form-head', ['inputName' => 'business_hours'])
 @endsection

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('nomadicore::layout')
 @section('head')
 
 <script src="/vendor/linkify/linkify.min.js"></script>

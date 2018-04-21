@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('nomadicore::layout')
 
 @section('content')
 <div class='container'>

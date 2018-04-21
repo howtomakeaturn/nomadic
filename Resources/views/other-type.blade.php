@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('nomadicore::layout')
 @section('head')
 <style>
     .greeting-box {
