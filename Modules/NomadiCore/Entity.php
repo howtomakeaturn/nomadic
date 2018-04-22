@@ -5,8 +5,7 @@ namespace Modules\NomadiCore;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Config;
-use Modules\NomadiCore\Cafe\Presenter;
-use Modules\NomadiCore\Cafe\Api;
+use Modules\NomadiCore\Entity\Presenter;
 use Modules\NomadiCore\Facebook\FanPage;
 use Modules\NomadiCore\BusinessHour;
 use Laravel\Scout\Searchable;
@@ -317,7 +316,7 @@ class Entity extends Model
 
     function createBusinessHours($json)
     {
-        BusinessHour::where('cafe_id', $this->id)->delete();
+        BusinessHour::where('entity_id', $this->id)->delete();
 
         $data = json_decode($json, true);
 
@@ -326,7 +325,7 @@ class Entity extends Model
         foreach ($days as $index => $day) {
             $businessHour = new BusinessHour();
 
-            $businessHour->cafe_id = $this->id;
+            $businessHour->entity_id = $this->id;
 
             $businessHour->day = $index + 1;
 

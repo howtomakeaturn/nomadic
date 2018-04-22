@@ -52,7 +52,19 @@
                         <input name="info_{{$field['key']}}" type="text">
                     </p>
                 @endforeach
+
+                @if(config('nomadic.business-hours-enabled'))
+                    營業時間（選填）<br>
+                    <br>
+                    @include('nomadicore::partial/business-hours-form', ['inputName' => 'business-hours'])
+
+                    <br>
+                    <br>
+                    <br>
+                @endif
+
                 </div>
+
                 <p>
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-primary btn-lg btn-block">送出{{ config('nomadic.global.subject') }}資料</button>
@@ -61,6 +73,12 @@
         </div>
     </div>
 </div>
+
+<br>
+<br>
+
+@include('nomadicore::partial/_footer')
+
 <style>
     .details-info {
         display: none;

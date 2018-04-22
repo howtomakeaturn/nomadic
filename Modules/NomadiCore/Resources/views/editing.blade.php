@@ -31,6 +31,16 @@
                 <br>
                 @endforeach
 
+                @if(config('nomadic.business-hours-enabled'))
+                營業時間（選填）<br>
+                <br>
+                @include('nomadicore::partial/business-hours-form', ['inputName' => 'business_hours'])
+
+                <br>
+                <br>
+                <br>
+                @endif
+
                 <input type="hidden" name="entity_id" value="{{ $entity->id }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" class="btn btn-primary btn-lg">送出欄位修改建議</button>

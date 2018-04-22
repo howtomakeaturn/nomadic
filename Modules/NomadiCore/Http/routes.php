@@ -166,6 +166,10 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $e->address = Request::get('address');
 
+        if (Request::get('business_hours') !== $entity->generateBusinessHoursJson()) {
+            $e->business_hours = Request::get('business_hours');
+        }
+
         $e->save();
 
         $e->approve();
