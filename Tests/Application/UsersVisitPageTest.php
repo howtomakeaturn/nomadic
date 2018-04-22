@@ -1,11 +1,14 @@
 <?php
 
+namespace Modules\NomadiCore\Tests\Application;
+
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Auth;
 use Modules\NomadiCore\Entity;
 use Modules\NomadiCore\User;
 use Modules\NomadiCore\Profile;
 
-class UsersVisitPageTest extends TestCase
+class UsersVisitPageTest extends TestBase
 {
     use DatabaseMigrations;
 

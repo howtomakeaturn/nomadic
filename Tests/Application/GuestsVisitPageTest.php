@@ -1,9 +1,11 @@
 <?php
 
+namespace Modules\NomadiCore\Tests\Application;
+
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Modules\NomadiCore\Entity;
 
-class GuestsVisitPageTest extends TestCase
+class GuestsVisitPageTest extends TestBase
 {
     use DatabaseMigrations;
 
