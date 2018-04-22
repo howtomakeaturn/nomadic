@@ -76,17 +76,31 @@
         </div>
         <hr>
         <div class='row'>
-            <div class='col-xs-12'>
+            @if(config('nomadic.business-hours-enabled'))
+            <div class='col-md-6 col-xs-6'>
+              @if($entity->generateBusinessHoursJson() === '{"monday":{"open":"00:00","close":"00:00"},"tuesday":{"open":"00:00","close":"00:00"},"wednesday":{"open":"00:00","close":"00:00"},"thursday":{"open":"00:00","close":"00:00"},"friday":{"open":"00:00","close":"00:00"},"saturday":{"open":"00:00","close":"00:00"},"sunday":{"open":"00:00","close":"00:00"}}')
+                <div class='rating-box'>
+                    {{trans('util.fields.open-time')}}：{{$entity->open_time}}
+                </div>
+              @else
+                <div class='rating-box'>
+                    {!!$entity->present()->businessHoursBox()!!}
+                    @if(trim($entity->open_time))
+                    （
+                    {{$entity->open_time}}
+                    ）
+                    @endif
+                </div>
+              @endif
+            </div>
+            @endif
+            <div class='col-md-6 col-xs-12'>
+              <div style="margin-bottom: 10px;">
                 地址：{{ $entity->address }}
+              </div>
+              <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $entity->id }}'><i class='fa fa-pencil'></i>&nbsp;{{trans('util.action.update-info')}}</a>
             </div>
         </div>
-        <br>
-          <div class='row'>
-              <div class='col-xs-12'>
-                  <a class="btn btn-info btn-sm" target="_blank" href='/editing/{{ $entity->id }}'><i class='fa fa-pencil'></i>&nbsp;{{trans('util.action.update-info')}}</a>
-              </div>
-          </div>
-
           <hr>
           <div class='row'>
               <div class='col-xs-12'>

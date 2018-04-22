@@ -49,6 +49,10 @@ class CommunityController extends BaseController
 
         $entity->save();
 
+        if (config('nomadic.business-hours-enabled')) {
+            $entity->createBusinessHours($request->input('business-hours'));
+        }
+
         return view('nomadicore::notice', ['title' => '新增成功！', 'message' => '非常謝謝您，已經新增進資料庫！']);
     }
 }
