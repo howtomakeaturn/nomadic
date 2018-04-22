@@ -14,11 +14,11 @@
     <div id="{{$day}}" class="dateTime">
       <div class="day">{{$names[$index]}}</div>
       <div class="time">
-          <input type="text" class="timepicker -open" value='{{ isset($cafe) ? $cafe->present()->openTime($day) : "00:00" }}' @if(isset($cafe) && $cafe->present()->openTime($day)===null) disabled  @endif>
+          <input type="text" class="timepicker -open" value='{{ isset($entity) ? $entity->present()->openTime($day) : "00:00" }}' @if(isset($entity) && $entity->present()->openTime($day)===null) disabled  @endif>
           -
-          <input type="text" class="timepicker -close" value='{{ isset($cafe) ? $cafe->present()->closeTime($day) : "00:00" }}' @if(isset($cafe) && $cafe->present()->openTime($day)===null) disabled  @endif>
+          <input type="text" class="timepicker -close" value='{{ isset($entity) ? $entity->present()->closeTime($day) : "00:00" }}' @if(isset($entity) && $entity->present()->openTime($day)===null) disabled  @endif>
           <label>
-              <input type="checkbox" class='dayoff' @if(isset($cafe) && $cafe->present()->openTime($day)===null) checked @endif>
+              <input type="checkbox" class='dayoff' @if(isset($entity) && $entity->present()->openTime($day)===null) checked @endif>
               未營業
           </label>
           <button class='btn btn-sm btn-default' onclick="applyFrom('{{$day}}'); return false;">套用到全部</button>

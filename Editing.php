@@ -113,6 +113,8 @@ class Editing extends Model
         setupEntityCoordinate($this->entity);
 
         $this->entity->save();
+
+        if ($this->business_hours !== null) $this->entity->createBusinessHours($this->business_hours);
     }
 
 }
