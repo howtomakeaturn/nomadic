@@ -212,7 +212,8 @@ class Presenter
     function _businessHour($dayInteger)
     {
         if ($this->cafe->business_hours->filter(function($e)use($dayInteger){return $e->day == $dayInteger;})->first()->open_time == null) {
-            return trans('util.misc.closed');
+            //return trans('util.misc.closed');
+            return '公休';
         }
 
         return $this->cafe->business_hours->filter(function($e)use($dayInteger){return $e->day == $dayInteger;})->first()->open_time->format('H:i') .
