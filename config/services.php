@@ -41,4 +41,8 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
+    'google' => [
+        'key' => env('GOOGLE_MAP_KEY'),
+    ]
+
 ];
