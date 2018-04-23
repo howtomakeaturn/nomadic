@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Modules\NomadiCore\Entity;
 
 class SetReviewMedian extends Command
 {
@@ -37,9 +38,9 @@ class SetReviewMedian extends Command
      */
     public function handle()
     {
-        $cafes = \App\Cafe::where('status', \App\Cafe::APPROVED_STATUS)->get();
+        $cafes = Entity::where('status', Entity::APPROVED_STATUS)->get();
 
-        $service = new \App\SetReviewMedian();
+        $service = new \Modules\NomadiCore\SetReviewMedian();
 
         foreach ($cafes as $cafe) {
             $service->handle($cafe);
