@@ -6,6 +6,14 @@ Nomadic 是一套讓網友一起整理清單、蒐集資訊、共同評分的 op
 
 目前版本支援清單模式、地圖模式，跟評分/編輯/留言/打卡/標籤功能。
 
+## 安裝
+
+使用 composer 的 create-project 指令安裝即可
+
+```
+composer create-project howtomakeaturn/nomdic
+```
+
 ## Screenshots
 
 Nomadic 首頁
