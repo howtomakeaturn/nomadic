@@ -4,7 +4,7 @@ Nomadic 是一套讓網友一起整理清單、蒐集資訊、共同評分的 op
 
 由 Cafe Nomad 主程式碼中抽離出來，並改寫為通用架構而成。
 
-目前版本支援清單模式跟評分/編輯/留言/打卡/標籤功能。
+目前版本支援清單模式、地圖模式，跟評分/編輯/留言/打卡/標籤功能。
 
 ## Screenshots
 
@@ -52,6 +52,7 @@ Nomadic 是以 Laravel 5.3 搭配 MySQL 5.5 開發而成
 1. 在 config/nomadic.php 內將 map-enabled 設為 true
 2. 前往 [Google Cloud Platform](https://console.cloud.google.com) 申請 key，開啟 Google Maps JavaScript API 與 Google Maps Geocoding API
 3. 在 config/services.php 內將 google.key 填入
+
 ## License
 
 Licensed under the GNU General Public License Version 2.0 or later.
