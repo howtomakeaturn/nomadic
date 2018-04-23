@@ -20,6 +20,10 @@ Nomadic 地圖頁面
 
 ![清單](/images/screenshot-map.png?raw=true "Map")
 
+Nomadic 主題項目頁面
+
+![清單](/images/screenshot-entity-page.png?raw=true "Entity")
+
 ## 現階段的狀況
 
 1. Nomadic 目前還在 beta 階段，系統可能不夠穩定，請斟酌情境使用
