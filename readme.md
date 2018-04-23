@@ -18,11 +18,11 @@ Nomadic 清單頁面
 
 Nomadic 地圖頁面
 
-![清單](/images/screenshot-map.png?raw=true "Map")
+![地圖](/images/screenshot-map.png?raw=true "Map")
 
 Nomadic 主題項目頁面
 
-![清單](/images/screenshot-entity-page.png?raw=true "Entity")
+![詳細頁面](/images/screenshot-entity-page.png?raw=true "Entity")
 
 ## 現階段的狀況
 
