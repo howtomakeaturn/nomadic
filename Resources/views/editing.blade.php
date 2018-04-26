@@ -44,6 +44,18 @@
                         </select>
                         <br>
                         <br>
+                    @elseif($field['type'] === 'input_radio')
+                        <div>
+                        {{ $field['label'] }}
+                        @foreach($field['options'] as $option)
+                            <label>
+                                &nbsp;
+                                <input type="radio" name="{{$field['key']}}" value="{{ $option['key'] }}" @if($option['key'] === $entity->getInfoFieldValue($field['key'])) checked @endif>
+                                {{ $option['label'] }}
+                            </label>
+                        @endforeach
+                        </div>
+                        <br>
                     @endif
                 @endforeach
 
