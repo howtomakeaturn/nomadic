@@ -70,6 +70,30 @@
         <meta name="theme-color" content="#ffffff">
 
         <style>
+
+            .loader {
+                border: 10px solid #f3f3f3; /* Light grey */
+                border-top: 10px solid #00BCD4; /* Blue */
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                animation: spin 0.5s linear infinite;
+
+                position: fixed;
+                z-index: 1100;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                top: 30%;
+                display: none;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
             .sk-fading-circle {
               margin: 100px auto;
               width: 100px;
@@ -234,6 +258,9 @@
     </head>
     <body>
 
+        <div class="loader" id="loading"></div>
+
+        <!--
         <div class="sk-fading-circle" id='loading'>
           <div class="sk-circle1 sk-circle"></div>
           <div class="sk-circle2 sk-circle"></div>
@@ -248,6 +275,7 @@
           <div class="sk-circle11 sk-circle"></div>
           <div class="sk-circle12 sk-circle"></div>
         </div>
+        -->
 
         @if(Layout::shouldDisplayNavbar())
         <nav class="navbar navbar-inverse" style="z-index: 10;">
