@@ -190,7 +190,7 @@ Route::group(['middleware' => 'web', /*'prefix' => 'nomadicore', */'namespace' =
 
         $photo = $service->handle();
 
-        $photo->cafe_id = Request::get('cafe_id');
+        $photo->entity_id = Request::get('entity_id');
 
         $photo->user_id = Auth::user()->id;
 
