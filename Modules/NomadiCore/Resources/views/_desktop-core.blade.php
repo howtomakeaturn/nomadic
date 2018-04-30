@@ -39,11 +39,7 @@
 
                     @foreach(Config::get('info-fields') as $field)
                     <td class="c1 -small">
-                        @if($entity->getInfoFieldValue($field['key']))
-                        {{$entity->getInfoFieldValue($field['key'])}}
-                        @else
-
-                        @endif
+                        {{ displayInfoField($field, $entity->getInfoFieldValue($field['key'])) }}
                     </td>
                     @endforeach
 

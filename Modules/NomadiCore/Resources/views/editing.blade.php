@@ -25,14 +25,42 @@
                 <br>
 
                 @foreach(Config::get('info-fields') as $field)
-                {{$field['label']}}（選填）
-                <input name='{{$field['key']}}' type='text' value="{{$entity->getInfoFieldValue($field['key'])}}">
-                <br>
-                <br>
+                    @if($field['type'] === 'input_text')
+                        {{$field['label']}}
+                        <input name='{{$field['key']}}' type='text' value="{{$entity->getInfoFieldValue($field['key'])}}">
+                        <br>
+                        <br>
+                    @elseif($field['type'] === 'select')
+                        {{ $field['label'] }}
+                        <select name="info_{{$field['key']}}">
+                            <option value="">請選擇</option>
+                            @foreach($field['options'] as $option)
+                                <option value="{{ $option['key'] }}"
+                                    @if($option['key'] === $entity->getInfoFieldValue($field['key'])) selected @endif
+                                >
+                                    {{ $option['label'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <br>
+                    @elseif($field['type'] === 'input_radio')
+                        <div>
+                        {{ $field['label'] }}
+                        @foreach($field['options'] as $option)
+                            <label>
+                                &nbsp;
+                                <input type="radio" name="{{$field['key']}}" value="{{ $option['key'] }}" @if($option['key'] === $entity->getInfoFieldValue($field['key'])) checked @endif>
+                                {{ $option['label'] }}
+                            </label>
+                        @endforeach
+                        </div>
+                        <br>
+                    @endif
                 @endforeach
 
                 @if(config('nomadic.business-hours-enabled'))
-                營業時間（選填）<br>
+                營業時間<br>
                 <br>
                 @include('nomadicore::partial/business-hours-form', ['inputName' => 'business_hours'])
 

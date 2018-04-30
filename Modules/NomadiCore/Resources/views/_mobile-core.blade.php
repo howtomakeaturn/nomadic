@@ -40,11 +40,7 @@
                         @foreach(Config::get('info-fields') as $field)
                         <td class="c1">
                             <div style='text-overflow: ellipsis; max-width: 90px; overflow: hidden;'>
-                                @if($entity->getInfoFieldValue($field['key']))
-                                {{$entity->getInfoFieldValue($field['key'])}}
-                                @else
-
-                                @endif
+                                {{ displayInfoField($field, $entity->getInfoFieldValue($field['key'])) }}
                             </div>
                         </td>
                         @endforeach

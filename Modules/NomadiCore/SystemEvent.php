@@ -9,6 +9,8 @@ class SystemEvent extends Model
 
     static function track($category, $payload)
     {
+        return;
+
         $event = new self();
 
         $event->category = $category;

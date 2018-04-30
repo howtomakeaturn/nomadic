@@ -68,7 +68,7 @@
               <div class='rating-box'>
                 {{$field['label']}}
                 <div class='value'>
-                  {{$entity->getInfoFieldValue($field['key'])}}
+                  {{ displayInfoField($field, $entity->getInfoFieldValue($field['key'])) }}
                 </div>
               </div>
           </div>
