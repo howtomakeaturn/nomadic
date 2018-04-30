@@ -109,12 +109,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li role="presentation" ><a href="#city-modal" data-toggle="modal" data-target="#city-modal">{{trans('layout.nav.choose-')}}{{Config::get('nomadic.global.category')}}</a></li>
+                <li role="presentation" ><a href="#city-modal" data-toggle="modal" data-target="#city-modal">{{trans('nomadicore::layout.nav.choose-')}}{{Config::get('nomadic.global.category')}}</a></li>
                 @if(Config::get('nomadic.forum.enabled'))
-                <li role="presentation" ><a href="/forum">{{trans('layout.nav.forum')}}</a></li>
+                <li role="presentation" ><a href="/forum">{{trans('nomadicore::layout.nav.forum')}}</a></li>
                 @endif
-                <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
-                <li role="presentation" @if(Request::path()=='contribute') class="active" @endif><a href="/contribute">{{trans('layout.nav.new-')}}{{ config('nomadic.global.subject') }}@if(Request::path() == 'contribute') <span class="sr-only">(目前頁面)</span> @endif</a></li>
+                <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('nomadicore::layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
+                <li role="presentation" @if(Request::path()=='contribute') class="active" @endif><a href="/contribute">{{trans('nomadicore::layout.nav.new-')}}{{ config('nomadic.global.subject') }}@if(Request::path() == 'contribute') <span class="sr-only">(目前頁面)</span> @endif</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
