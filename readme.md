@@ -1,6 +1,6 @@
 # Nomadic
 
-Nomadic 是一套讓網友一起整理清單、蒐集資訊、共同評分的 open source 系統。
+Nomadic 是一套讓網友一起整理清單、地圖、蒐集資訊、共同評分的 open source 系統。
 
 由 Cafe Nomad 主程式碼中抽離出來，並改寫為通用架構而成。
 
@@ -18,7 +18,7 @@ composer create-project howtomakeaturn/nomdic
 
 * config/review-fields.php：給使用者評分的欄位項目
 
-* config/info-fields.php：字串類型的資訊編修項目
+* config/info-fields.php：給使用者編修的字串、選項、選單類型的資訊項目
 
 * config/nomadic.php：其它網站設定資訊
 
