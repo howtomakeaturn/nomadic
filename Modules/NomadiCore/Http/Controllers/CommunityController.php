@@ -11,6 +11,8 @@ class CommunityController extends BaseController
 {
     public function contribute(Request $request)
     {
+        checkInfoFieldsSetting();
+
         if (!$request->user()) {
             return redirect('login?&path=/contribute');
         }

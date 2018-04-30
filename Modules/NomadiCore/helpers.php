@@ -323,6 +323,13 @@ function setupEntityCoordinate($entity)
     $entity->longitude = $lng;
 }
 
+function checkInfoFieldsSetting()
+{
+    $installer = new Modules\NomadiCore\Installer();
+
+    $installer->checkInfoFieldsSetting();
+}
+
 function displayInfoField($field, $value)
 {
     if ($field['type'] === 'input_text') return $value;
