@@ -303,43 +303,13 @@
                 <li role="presentation" ><a href="/forum">{{Config::get('nomadic.forum.label')}}</a></li>
                 @endif
 
-                @foreach(Config::get('nomadic.links') as $link)
-                <li role="presentation" ><a href="{{$link['url']}}" target='_blank'>{{$link['label']}}</a></li>
-                @endforeach
-
                 <li role="presentation" @if(Request::path()=='community') class="active" @endif><a href="/community">{{trans('layout.nav.contributors')}}@if(Request::path()=='community') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
                 <li role="presentation" @if(Request::path()=='contribute') class="active" @endif><a href="/contribute">新增{{ config('nomadic.global.subject') }}@if(Request::path() == 'contribute') <span class="sr-only">(目前頁面)</span> @endif</a></li>
 
                 @endif
-                <!--
-                <li role="presentation"><a href="https://www.facebook.com/groups/561078630763040/" target='_blank'>{{trans('layout.nav.group')}}</a></li>
-                <li role="presentation"><a href="https://www.facebook.com/cafenomad.tw/" target='_blank'>{{trans('layout.nav.fan-page')}}</a></li>
-                -->
-                <!--
-                <li role="presentation"><a href="/review" target='_blank'>最佳評鑑</a></li>
-                -->
-                @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
-                <!--
-                <li role="presentation" @if(Request::path()=='events') class="active" @endif><a href="/events">佈告欄@if(Request::path()=='events') <span class="sr-only">(目前頁面)</span> @endif</a></li>
-                -->
-                @endif
 
-                @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
-                <!--
-                <li role="presentation" @if(Request::path()=='apps') class="active" @endif><a href="/apps">Apps</a></li>
-                -->
-                @endif
-
-                @if(LaravelLocalization::getCurrentLocale() === 'zh-TW')
-                <!--
-                <li role="presentation" @if(Request::path()=='donate') class="active" @endif><a href="/donate">{{trans('layout.nav.donate')}} @if(Request::path()=='donate') <span class="sr-only">(目前頁面)</span> @endif</a></li>
-                -->
-                @endif
-                <!--
-                <li role="presentation"><a href="https://www.facebook.com/%E5%92%96%E5%95%A1%E5%BB%B3%E5%B0%8F%E6%95%85%E4%BA%8B-2118777268348018/" target='_blank'>咖啡廳小故事</a></li>
-                -->
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
