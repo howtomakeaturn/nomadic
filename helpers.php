@@ -322,3 +322,27 @@ function setupEntityCoordinate($entity)
 
     $entity->longitude = $lng;
 }
+
+function checkInfoFieldsSetting()
+{
+    $installer = new Modules\NomadiCore\Installer();
+
+    $installer->checkInfoFieldsSetting();
+}
+
+function displayInfoField($field, $value)
+{
+    if ($field['type'] === 'input_text') return $value;
+
+    if ($field['type'] === 'select') {
+        foreach ($field['options'] as $option) {
+            if ($option['key'] === $value) return $option['label'];
+        }
+    }
+
+    if ($field['type'] === 'input_radio') {
+        foreach ($field['options'] as $option) {
+            if ($option['key'] === $value) return $option['label'];
+        }
+    }
+}

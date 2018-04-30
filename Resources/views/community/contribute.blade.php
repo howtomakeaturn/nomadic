@@ -47,10 +47,33 @@
                 @endforeach
 
                 @foreach(config('info-fields') as $field)
-                    <p>
-                        {{ $field['label'] }}（選填）
-                        <input name="info_{{$field['key']}}" type="text">
-                    </p>
+                    @if($field['type'] === 'input_text')
+                        <p>
+                            {{ $field['label'] }}
+                            <input name="info_{{$field['key']}}" type="text">
+                        </p>
+                    @elseif($field['type'] === 'select')
+                        <p>
+                            {{ $field['label'] }}
+                            <select name="info_{{$field['key']}}">
+                                <option value="">請選擇</option>
+                                @foreach($field['options'] as $option)
+                                    <option value="{{ $option['key'] }}">{{ $option['label'] }}</option>
+                                @endforeach
+                            </select>
+                        </p>
+                    @elseif($field['type'] === 'input_radio')
+                        <p>
+                            {{ $field['label'] }}
+                            @foreach($field['options'] as $option)
+                                <label>
+                                    &nbsp;
+                                    <input type="radio" name="info_{{$field['key']}}" value="{{ $option['key'] }}">
+                                    {{ $option['label'] }}
+                                </label>
+                            @endforeach
+                        </p>
+                    @endif
                 @endforeach
 
                 @if(config('nomadic.business-hours-enabled'))
