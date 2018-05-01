@@ -8,6 +8,14 @@ Currently support list mode, map mode. Features include reviewing/editing/commen
 
 *Read this in other languages: [English](readme.md), [中文](readme.zh-tw.md).*
 
+## Examples
+
+[Cafe Nomad](https://cafenomad.tw/en)
+
+Cafe Nomad is a platform gathering information for 2,000+ coffee shops in Taiwan.
+
+Users can find and contribute coffee shop information on Cafe Nomad.
+
 ## Installation
 
 Install Nomadic with composer in the terminal
