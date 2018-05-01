@@ -1,30 +1,31 @@
 # Nomadic
 
-Nomadic 是一套讓網友一起整理清單、地圖、蒐集資訊、共同評分的 open source 系統。
+Nomadic is an open source system to let you gather information with your audiences.
 
-由 Cafe Nomad 主程式碼中抽離出來，並改寫為通用架構而成。
+You can collect information,  write reviews, leave comments, and add tags on certain topics.
 
-目前版本支援清單模式、地圖模式，跟評分/編輯/留言/打卡/標籤功能。
+Currently support list mode, map mode. Features include reviewing/editing/commenting/check-ins/tagging.
 
 *Read this in other languages: [English](readme.md), [中文](readme.zh-tw.md).*
 
-## 安裝
+## Installation
 
-使用 composer 的 create-project 指令安裝即可
+Install Nomadic with composer in the terminal
 
 ```
 composer create-project howtomakeaturn/nomdic
 ```
 
-## 核心設定
+## Core Configuration
 
-* config/review-fields.php：給使用者評分的欄位項目
+* config/review-fields.php：Fields for reviewing
 
-* config/info-fields.php：給使用者編修的字串、選項、選單類型的資訊項目
+* config/info-fields.php：Fields for editing. Support string/radio buttons/select menu
 
-* config/nomadic.php：其它網站設定資訊
+* config/nomadic.php：Other configuration
 
-## 地圖模式的開啟設定
+## How to enable the map mode
+
 1. 在 config/nomadic.php 內將 map-enabled 設為 true
 2. 前往 [Google Cloud Platform](https://console.cloud.google.com) 申請 key，開啟 Google Maps JavaScript API 與 Google Maps Geocoding API
 3. 在 config/services.php 內將 google.key 填入
