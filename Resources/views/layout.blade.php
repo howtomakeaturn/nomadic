@@ -176,13 +176,13 @@
         </script>
 
         <!-- Modal -->
-        <div class="modal fade" id="city-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal" id="city-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
 
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style='text-align: center;'>選擇{{Config::get('nomadic.global.category')}}</h4>
+                <h4 class="modal-title" id="myModalLabel" style='text-align: center;'>{{trans('nomadicore::layout.nav.choose-')}}{{Config::get('nomadic.global.category')}}</h4>
               </div>
 
               <div class="modal-body">
