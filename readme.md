@@ -16,6 +16,8 @@ Cafe Nomad is a platform gathering information for 2,000+ coffee shops in Taiwan
 
 Users can find and contribute coffee shop information on Cafe Nomad.
 
+![Info Page](/images/screenshot-cafenomad.png?raw=true "Cafe Nomad")
+
 ## Installation
 
 Install Nomadic with composer in the terminal
