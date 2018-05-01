@@ -30,9 +30,9 @@ composer create-project howtomakeaturn/nomdic
 
 * config/review-fields.php：Fields for reviewing
 
-* config/info-fields.php：Fields for editing. Support string/radio buttons/select menu
+* config/info-fields.php：Fields for editing. Supported types: string/radio buttons/select menu
 
-* config/nomadic.php：Other configuration
+* config/nomadic.php：Other configuration settings
 
 ## How to enable the map mode
 
