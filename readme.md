@@ -10,7 +10,7 @@ Currently support list mode, map mode. Features include reviewing/editing/commen
 
 ## Examples
 
-[Cafe Nomad](https://cafenomad.tw/en)
+### [Cafe Nomad](https://cafenomad.tw/en) - 2,200+ best cafes to work in Taiwan
 
 Cafe Nomad is a platform gathering information for 2,000+ coffee shops in Taiwan.
 
