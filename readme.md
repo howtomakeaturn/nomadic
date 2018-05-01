@@ -1,6 +1,6 @@
 # Nomadic
 
-Nomadic is an open source system to let you gather information with your audiences.
+Nomadic is an open source system to let you gather information with your community.
 
 You can collect information,  write reviews, leave comments, and add tags on certain topics.
 
