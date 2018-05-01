@@ -25,6 +25,7 @@ composer create-project howtomakeaturn/nomdic
 * config/nomadic.php：其它網站設定資訊
 
 ## 地圖模式的開啟設定
+
 1. 在 config/nomadic.php 內將 map-enabled 設為 true
 2. 前往 [Google Cloud Platform](https://console.cloud.google.com) 申請 key，開啟 Google Maps JavaScript API 與 Google Maps Geocoding API
 3. 在 config/services.php 內將 google.key 填入

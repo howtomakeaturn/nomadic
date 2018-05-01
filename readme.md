@@ -26,17 +26,17 @@ composer create-project howtomakeaturn/nomdic
 
 ## How to enable the map mode
 
-1. 在 config/nomadic.php 內將 map-enabled 設為 true
-2. 前往 [Google Cloud Platform](https://console.cloud.google.com) 申請 key，開啟 Google Maps JavaScript API 與 Google Maps Geocoding API
-3. 在 config/services.php 內將 google.key 填入
+1. Set 'map-enabled' as true in 'config/nomadic.php'
+2. Go to [Google Cloud Platform](https://console.cloud.google.com) and generate a key, and then enable Google Maps JavaScript API and Google Maps Geocoding API
+3. Fill in google.key value in 'config/services.php'
 
-## 注意事項
+## Notice
 
-Nomadic 是以 Laravel 5.3 搭配 MySQL 5.5 開發而成
+Nomadic is developed under Laravel 5.3 and MySQL 5.5.
 
-目前只支援 Facebook 登入，因此要在 Facebook 註冊 web app 並於 .env 檔內設定 Facebook client id/secret
+Currently only support user login with Facebook. You need to register a web app in Facebook developer platform and set up the client id/secret in .env file.
 
-另外，因為有用到 Laravel Task Scheduling，所以請記得設定
+Setup the cronjob for Laravel Task Scheduling,
 
 ```
 * * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
@@ -44,29 +44,27 @@ Nomadic 是以 Laravel 5.3 搭配 MySQL 5.5 開發而成
 
 ## Screenshots
 
-Nomadic 首頁
+Nomadic Homepage
 
-![首頁](/images/screenshot-homepage.png?raw=true "Homepage")
+![Homepage](/images/screenshot-homepage.png?raw=true "Homepage")
 
-Nomadic 清單頁面
+Nomadic List Page
 
-![清單](/images/screenshot-list.png?raw=true "List")
+![List](/images/screenshot-list.png?raw=true "List")
 
-Nomadic 地圖頁面
+Nomadic Map Page
 
-![地圖](/images/screenshot-map.png?raw=true "Map")
+![Map](/images/screenshot-map.png?raw=true "Map")
 
-Nomadic 主題項目頁面
+Nomadic Entity Info Page
 
-![詳細頁面](/images/screenshot-entity-page.png?raw=true "Entity")
+![Info Page](/images/screenshot-entity-page.png?raw=true "Entity")
 
-## 現階段的狀況
+## Development Status
 
-1. Nomadic 目前還在 beta 階段，系統可能不夠穩定，請斟酌情境使用
+1. Nomadic is currenly under beta phase. The system might not be stable and has many issues.
 
-2. Nomadic 是由 Cafe Nomad 原始碼中抽離出來而成，但兩者尚未整合，所以發到此處的 PR 目前**不會**更新到 Cafe Nomad
-
-3. 因為是由 Cafe Nomad 中抽離出來，目前程式碼中有很多冗餘的 code / 不合理的 naming，還請海涵。接下來幾個 release 會陸續清理乾淨程式碼
+2. The source code is extracted from another project 'Cafe Nomad', so some redundant code and weird naming exist in the codebase. Will refactor them in the following releases.
 
 ## License
 
