@@ -1,3 +1,11 @@
+# 注意：此套系統有點舊了。
+# 我做了一套同樣功能、全新版本的系統。請參考：https://github.com/howtomakeaturn/ListPower
+
+# Notice: This is a legacy project.
+# I made a new version project as an upgrade: https://github.com/howtomakeaturn/ListPower
+
+---
+
 # Nomadic
 
 Nomadic is an open source system to let you gather information with your community.
